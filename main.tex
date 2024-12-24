@@ -1,0 +1,585 @@
+\documentclass{beamer}
+
+\mode<presentation>{
+\usetheme{Madrid}
+\usecolortheme{default}
+%\usecolortheme{beaver}
+}
+\usepackage[utf8]{inputenc}
+\usepackage{utopia}
+\usepackage{verbatim}
+\usepackage[portuguese]{babel}
+\usepackage{pgfplots}
+\pgfplotsset{/pgf/number format/use comma,compat=newest}
+\usepackage{color}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{soul}
+%https://www.overleaf.com/project/61717826e515873b24296576
+\usepackage{graphicx}
+\usepackage{algorithm2e}
+\usepackage{algorithmic}
+
+
+\newcommand\ldiaarg[1]{\langle#1\rangle}
+
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\LL}{\mathcal{L}} %for automata
+
+\newcommand{\Decide}{\mathsf{Decide}}
+\newcommand{\DecidePSPACE}{\mathsf{mcPOL}}
+\newcommand{\reach}{\mathsf{PSPACEReach}}
+\newcommand{\CreateDelta}{\mathsf{CreateDelta}}
+\newcommand{\StringRepresent}{\mathsf{StringRepresent}}
+\newcommand{\StoreStrings}{\mathsf{StoreStrings}}
+\newcommand{\ResidueByLetter}{\mathsf{ResidueByLetter}}
+\newcommand{\ResidueByWord}{\mathsf{ResidueByWord}}
+\newcommand{\AuxOut}{\mathsf{AuxOut}}
+\newcommand{\GetSetNP}{\mathsf{GetSetNP}}
+\newcommand{\T}{\mathsf{True}}
+\newcommand{\Fa}{\mathsf{False}}
+\newcommand{\tr}{\mathsf{tr}}
+\newcommand{\starfree}{\mathsf{Star\mbox{-}Free}}
+\newcommand{\word}{\mathsf{Word}}
+\newcommand{\existential}{\mathsf{Existential}}
+\newcommand{\PSPACE}{\mathsf{PSPACE}}
+\newcommand{\PTime}{\mathsf{P}}
+\newcommand{\NP}{\mathsf{NP}}
+\newcommand{\PTIME}{\mathsf{PTIME}}
+\newcommand{\automaton}{\mathcal A}
+\newcommand{\modelM}{\mathcal M}
+\newcommand{\languageof}[1]{L({#1})}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\suchthat}{\mid}
+
+\newcommand\algoaccept{\textbf{accept}}
+\newcommand\algoreject{\textbf{reject}}
+
+\tikzstyle{rectNode} = [rectangle, text centered]
+\tikzstyle{fastate} = [circle, text centered, draw = black]
+\tikzstyle{dots} = [circle, draw = black, fill = black, inner sep=1pt]
+
+\makeatletter
+\let\HL\hl
+\renewcommand\hl{%
+  \let\set@color\beamerorig@set@color
+  \let\reset@color\beamerorig@reset@color
+  \HL}
+\makeatother
+
+
+
+\title[Model-Checking of Public Observation Logic]{Computational Complexity Model-Checking of Public Observation Logic}
+\author[Avijeet Ghosh]{Avijeet Ghosh}
+\institute[ISI, Kolkata]{Indian Statistical Institute, Kolkata}
+
+
+\begin{document}
+
+\begin{frame}
+ \maketitle
+\end{frame}
+
+\begin{frame}
+\frametitle{Table of Contents}
+ \tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Introduction: The Public Observation Logic (POL)}
+    \begin{itemize}
+        \item<1-> The Syntax
+        \item<2-> The Semantics
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction: Observation Expression}
+    An Observation expression $\pi\in\LL_{Obs}$ can be defined as
+    $$
+    \pi := \emptyset\ \ |\ \ \epsilon\ \ |\ \ a\in\Sigma\ \ |\ \ \pi_1 +\pi_2\ \ |\ \ \pi_1.\pi_2\ \ |\ \ \pi_1^{*}
+    $$
+    where $\Sigma$ is a finite set of action symbols and $\LL_{Obs}$ being the set of all Observation expression over $\Sigma$.\\\pause
+    The semantics of Observation expression is same as in regular expression including\\\pause
+    $\emptyset$ as the language of empty set of observations\\\pause
+    $\epsilon$ as the empty string.\\\pause
+    Note: An observation expression $\pi$ over action symbols $\Sigma$ is equivalent to a regular expression over alphabets $\Sigma$.
+\end{frame}
+
+\begin{frame}{Introduction: POL syntax}
+    A POL formula $\varphi$ is defined as
+    $$
+    \varphi := \top\ \ |\ \ p\in\mathcal{P}\ \ |\ \ \psi_1\wedge\psi_2\ \ |\ \ \neg{\psi}\ \ |\ \ K_i\psi\ \ |\ \ [\pi]\psi
+    $$
+    where $\mathcal{P}$ is the set of propositional letters, $i\in I$ and agent and $\pi$ is a regular expression over some alphabet $\Sigma$.\\\pause
+    The dual modalities are also defined as 
+    $$\ldiaarg{\pi}\psi = \neg{[\pi]\neg{\psi}}$$
+    $$\hat{K_i}\psi = \neg{K_i\neg{\psi}}$$
+    
+\end{frame}
+
+\begin{frame}{Introduction: Epistemic Models}
+   An Epistemic Model $\M = \ldiaarg{S, \sim, V}$ where
+   \begin{itemize}
+       \item<1-> $S$ = a non-empty set of worlds of model.
+       \item<2-> $\sim_i\subseteq S\times S$, for every $i\in I$, is an equivalence relation among the worlds. $\sim = \{ \sim_i\}_{i\in I}$.
+       \item<3-> $V:S\rightarrow 2^{\mathcal{P}}$ is an evaluation function that assign truth values to propositional letters in each world.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction: Epistemic Expectation Model}
+    \begin{itemize}
+        \item<1-> An extension over the Epistemic Model.
+        \item<2-> $\M = \ldiaarg{S, \sim, V, Exp}$, where $Exp: S\rightarrow\LL_{Obs}$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction: Update by Observation}
+    \begin{itemize}
+        \item<1-> An Observation is a string $w\in\Sigma^*$.
+        \item<2-> $\M|_w = \ldiaarg{S', \sim', V', Exp'}$
+        \item<3-> $S' = \{s\in S\mid \LL(Exp(s)\setminus w)\neq\emptyset\}$, where $\pi\setminus u$, for a regular expression $\pi$ and $w\in\Sigma^*$, refers to residuation with respect to monoid $(\Sigma^*, ., \epsilon)$.
+        \item<4-> $\sim'_i = \sim_i|_{S'\times S'}$ for all $i\in I$.
+        \item<5-> $V' = V|_{S'}$.
+        \item<6-> $Exp'(s) = Exp(s)\setminus w$ for all $s\in S'$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Introduction: POL Semantics}
+    Given an Epistemic Expectation Model $\M = \ldiaarg{S, \sim, V, Exp}$, a world $s\in S$, and a POL formula $\varphi$, the truth of $\varphi$ in $\M$ at $s$ ($\M,s\vDash\varphi$) is defined as
+    \begin{itemize}
+        \item<1-> $\M,s\vDash p \Leftrightarrow p\in V(s)$
+        \item<2-> $\M,s\vDash \neg\varphi \Leftrightarrow   \M,s\nvDash \varphi$
+        \item<3-> $\M,s\vDash \varphi\land \psi \Leftrightarrow \M,s\vDash \varphi \mbox{ and } \M,  s\vDash \psi$
+        \item<4-> $\M,s\vDash K_i\varphi \Leftrightarrow \mbox{for all }t: (s\sim_i t  \mbox{ implies } \M,t\vDash\varphi)$
+        \item<5-> $\M,s\vDash [\pi]\varphi \Leftrightarrow \mbox{for all }w\in\LL(\pi) \cap \mathit{init}(Exp(s))\mbox{, we have }\M|_w,s\vDash \varphi$
+    \end{itemize}
+\end{frame}
+
+\section{Model Checking is in $PSPACE$}
+
+\begin{frame}{Model Checking is in $PSPACE$}
+    \begin{block}{Observation 1}
+    For a finite model $\M = \langle S,\sim,V,Exp\rangle$, a world $s\in S$, and for every pair of words $w, w'\in \Sigma^*$, if $w$ and $w'$ are simulated in the $DFA(Exp(s)) = (Q_s, \Sigma, \delta_s, q^0_s, F_s)$, with both simulations ending in the state $q\in Q_s$, then $DFA(Exp(s)\backslash w) = DFA(Exp(s)\backslash w')$.
+    \label{observation:prefixstatequivalence}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Observation 1 Proof}
+    \textbf{Proof.}\\
+    Consider a world $s\in\M$ and the DFA of $Exp(s)$:\\
+    \begin{tikzpicture}[node distance=2cm]
+    \node(q0) [fastate] {$q_0$};
+    \node(q1) [fastate, right of=q0] {$q_1$};
+    \node(q2) [fastate, above of=q1] {$q_2$};
+    \node(q3) [fastate, below of=q1] {$q_3$};
+    \coordinate[left of=q0] (emptystart);
+    \coordinate[above of=q0] (residuestart);
+    
+    \node(d1) [dots, right of=q2, xshift = -1cm] {};
+    \node(d2) [dots, right of=q1, xshift = -1cm] {};
+    \node(d3) [dots, right of=q3, xshift = -1cm] {};
+    \node(d4) [dots, right of=d2, xshift = -1cm] {};
+    \node(d5) [dots, right of=d1, xshift = -1cm] {};
+    \node(d6) [dots, right of=d3, xshift = -1cm] {};
+    \node(d7) [dots, right of=d4, xshift = -1cm] {};
+    \node(d8) [dots, right of=d5, xshift = -1cm] {};
+    \node(d9) [dots, right of=d6, xshift = -1cm] {};
+    
+    \node(qf1) [fastate, ultra thick, right of = d7, yshift = -1cm] {$q_{f1}$};
+    \node(qf2) [fastate, ultra thick, right of = d8, yshift = -1cm] {$q_{f2}$};
+    
+    \draw[->] (q0)--node[anchor=south] {$a_1$}(q2);
+    \draw[->] (q0)--node[anchor=north] {$a_2$}(q1);
+    \draw[->] (q0)--node[anchor=north] {$a_3$}(q3);
+    \draw[->] (emptystart)--(q0);
+    
+    \end{tikzpicture}\\
+    \pause
+    Now let us consider the DFA of $Exp(s)\setminus a_1$, for an $a_1\in\Sigma$...
+    
+\end{frame}
+
+\begin{frame}{Observation 1 Proof contd.}
+    \textbf{Proof.}\\
+    Now let us consider the DFA of $Exp(s)\setminus a_1$, for an $a_1\in\Sigma$\\
+    \begin{tikzpicture}[node distance=2cm]
+    \node(q0) [fastate] {$q_0$};
+    \node(q1) [fastate, right of=q0] {$q_1$};
+    \node(q2) [fastate, above of=q1] {$q_2$};
+    \node(q3) [fastate, below of=q1] {$q_3$};
+    \coordinate[left of=q0] (emptystart);
+    \coordinate[above of=q0] (residuestart);
+    
+    \node(d1) [dots, right of=q2, xshift = -1cm] {};
+    \node(d2) [dots, right of=q1, xshift = -1cm] {};
+    \node(d3) [dots, right of=q3, xshift = -1cm] {};
+    \node(d4) [dots, right of=d2, xshift = -1cm] {};
+    \node(d5) [dots, right of=d1, xshift = -1cm] {};
+    \node(d6) [dots, right of=d3, xshift = -1cm] {};
+    \node(d7) [dots, right of=d4, xshift = -1cm] {};
+    \node(d8) [dots, right of=d5, xshift = -1cm] {};
+    \node(d9) [dots, right of=d6, xshift = -1cm] {};
+    
+    \node(qf1) [fastate, ultra thick, right of = d7, yshift = -1cm] {$q_{f1}$};
+    \node(qf2) [fastate, ultra thick, right of = d8, yshift = -1cm] {$q_{f2}$};
+    
+    \draw[->] (q0)--node[anchor=south] {$a_1$}(q2);
+    \draw[->] (q0)--node[anchor=north] {$a_2$}(q1);
+    \draw[->] (q0)--node[anchor=north] {$a_3$}(q3);
+    \draw[->] (residuestart)--(q2);
+    
+    \end{tikzpicture}\\
+    \pause
+    Hence now consider, for any $w\in\Sigma^*$, the DFA of $Exp(s)\setminus w$.
+\end{frame}
+
+\begin{frame}{Observation 1 Proof contd.}
+    \textbf{Proof.}\\
+    $u\in \mathcal{L}(DFA(Obs(s)\backslash w))$\\\pause
+    iff $wu\in \mathcal{L}(DFA(Obs(s)))$\\\pause
+    iff $\widehat{\delta_s}(q^0_s, wu)\in F_s$\\\pause
+    iff $\widehat{\delta_s}(\widehat{\delta_s}(q^0_s, w), u)\in F_s$\\\pause
+    iff $\widehat{\delta_s}(\widehat{\delta_s}(q^0_s, w'), u)\in F_s$\\\pause
+    iff $w'u\in \mathcal{L}(DFA(Obs(s)))$\\\pause
+    iff $u\in \mathcal{L}(DFA(Obs(s)\backslash w'))$
+\end{frame}
+
+\begin{frame}{Model Checking is in $PSPACE$}
+    \begin{block}{Observation 2}
+    Given a finite POL model $\M = \langle S,\sim,V,Exp \rangle$, consider the set $\Gamma^\M = \{\M|_w\mid w\in\Sigma^* \}$. The size of $|\Gamma^\M|\leq\Pi_{t \in \M} 2^{|Exp(t)|}$.
+    \label{lemma:NumberOfProjectedModels}
+    \end{block}\pause
+    \textbf{Proof Idea.} Define an equivalence relation $Z^\M_s\subseteq \Sigma^* \times \Sigma^*$ based on the idea of Observation 1.
+\end{frame}
+
+\begin{frame}{Observation 2 Proof}
+    \textbf{Proof.}\\
+    \begin{itemize}
+        \item<1-> For a world $s\in S$ with $DFA(Exp(s)) = (Q_s, \Sigma, \delta_s, q^0_s, F_s)$, define $Z^\M_s\subseteq\Sigma^*\times\Sigma^*$:
+        $$
+        (w,u)\in Z^\M_s\Leftrightarrow\widehat{\delta_s}(q^0_s, w) = \widehat{\delta_s}(q^0_s, u)
+        $$
+        
+        \item<2-> Note that each equivalence class $[[w]]$ is the language of $DFA(Exp(s)\setminus w)$ (By previous Observation).
+        \item<3-> For an $s\in S$, how many partitions in $\Sigma^*$ possible by $Z^\M_s$?
+        \item<4-> \textbf{Answer}: Number of states in $DFA(Exp(s))\leq 2^{|Exp(s)|}$.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Observation 2 Proof contd.}
+    \textbf{Proof (contd).}\\
+    \begin{itemize}
+        \item<1-> Given a model $\M$ and a $w\in\Sigma^*$, consider the tuple indexed by $n$ worlds in $\M$:
+        $$
+        (Exp(s_1)\setminus w, Exp(s_2)\setminus w,..., Exp(s_n)\setminus w)
+        $$
+        
+        \item<2-> By previous discussion, for any $w\in\Sigma^*$, each index $s_i$ can have $2^{|Exp(s_i)|}$ unique regular expressions.
+        
+        \item<3-> How many unique sequence of regular expressions possible for any $w\in\Sigma^*$ for every index $s_i$?
+        
+        \item<4-> \textbf{Answer. } At most $\Pi_{i\in[1,n]}2^{|Exp(s_i)|}$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Observation 2 Proof contd.}
+    
+\end{frame}
+
+\begin{frame}{Model Checking is in $PSPACE$}
+    \begin{block}{Lemma 1}
+    Given a $POL$ model $\M=\langle S,\sim,V,Exp\rangle$, a world $s\in S$ and a formula $\ldiaarg{\pi}\psi$, $\M,s\vDash\ldiaarg{\pi}\psi$ iff $\exists w\in \LL(\pi)$ of length at most $2^{|\pi|}\times \Pi_{t \in \M} 2^{|Exp(t)|}$ such that $\M|_w,s\vDash\psi$ and the world $s$ survives in $\M|_w$.
+    \end{block}\pause
+    Note: Assuming $\exists w\in \LL(\pi)$ of length at most $2^{|\pi|}\times \Pi_{t \in \M} 2^{|Exp(t)|}$ such that $\M|_w,s\vDash\psi$ and the world $s$ survives in $\M|_w$, proving $\M,s\vDash\ldiaarg{\pi}\psi$ is straightforward.
+\end{frame}
+
+\begin{frame}{Lemma 1 Proof}
+    Assuming $\M,s\vDash\ldiaarg{\pi}\psi$:\\\pause
+    Consider a graph $G^\M(\Gamma^\M, E^\M)$. For a letter $a\in\Sigma$, $(\M|_{u}, \M|_{u'}, a)\in E^\M$ iff $\M|_{ua} = \M|_{u'}$.\\\pause
+    Say for example, $\Sigma = \{a, b \}$ and some POL model $\M$,\\\pause
+    \begin{tikzpicture}[node distance = 2cm]
+    \node(M)[rectNode]{$\M = \M|_{\epsilon}$};
+    \node(Mb)[rectNode, right of=M, yshift = -1cm]{$\M|_b$};
+    \node(Ma)[rectNode, right of=M, yshift = 1cm]{$\M|_a$};
+    
+    \node(d1)[dots, right of=Ma]{};
+    \node(d2)[dots, below of=d1,yshift = 1cm]{};
+    \node(d3)[dots, below of=d2,yshift = 1cm]{};
+    \coordinate[below of=d1] (empty1);
+    \coordinate[above of=d3, yshift = -0.5cm] (empty2);
+    \coordinate[below of=d1, yshift=0.5cm] (empty3);
+    
+    
+    \node(d12)[dots, right of=d1, xshift=-1cm]{};
+    \node(d22)[dots, right of=d2, xshift=-1cm]{};
+    \node(d32)[dots, right of=d3, xshift=-1cm]{};
+    
+    
+    \node(d13)[dots, right of=d12, xshift=-1cm]{};
+    \node(d23)[dots, right of=d22, xshift=-1cm]{};
+    \node(d33)[dots, right of=d32, xshift=-1cm]{};
+    
+    \node(Mu)[rectNode, right of=d13,xshift=-1cm]{$\M|_u$};
+    \node(Mua)[rectNode, right of=d23, xshift=1cm]{$\M|_{ua}$};
+    
+    
+    \draw[->](M.north).. node[anchor=south] {$a$}controls +(up:7mm) and +(left:7mm) ..(Ma.west);
+    \draw[->](M.south).. node[anchor=north] {$b$}controls +(down:7mm) and +(left:7mm) ..(Mb.west);
+    \draw[->](Ma.east)--node[anchor=north] {$b$}(d1.west);
+    \draw[->](Ma.south).. node[anchor=north] {$a$}controls +(down:7mm) and +(left:7mm) ..(empty1);
+    \draw[->](Mb.north).. node[anchor=south] {$b$}controls +(up:7mm) and +(left:7mm) ..(empty2);
+    \draw[->](Mb.east)--node[anchor=north] {$a$}(d3.west);
+    \draw[->](empty3.west)--(M.east);
+    \draw[->](Mu.east)--node[anchor=south] {$a$}(Mua.north);
+    \draw[->](Mu.south).. node[anchor=north] {$b$}controls +(down:7mm) and +(right:7mm) ..(d33.east);
+    \draw[->](Mua.west)--node[anchor=south] {$b$}(d23.east);
+    \draw[->](Mua.south)..node[anchor=south] {$a$}controls +(down:7mm) and +(right:7mm)..(d33.east);
+    
+    \end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}{Lemma 1 Proof}
+    Assuming $\M,s\vDash\ldiaarg{\pi}\psi$:
+    \begin{itemize}
+        \item<1-> Consider a graph $G^\M(\Gamma^\M, E^\M)$. For a letter $a\in\Sigma$, $(\M|_{u}, \M|_{u'}, a)\in E^\M$ iff $\M|_{ua} = \M|_{u'}$.
+        
+        \item<2-> Previously, we know $|\Gamma^\M|\leq \Pi_{t \in \M} 2^{|Exp(t)|}$.
+        
+        \item<3-> For any $\M|_u, \M|_{u'}\in\Gamma^\M$, consider the language $\Delta_{\M|_u,\M|_{u'}} = \{w\in\Sigma^*\mid \M|_{uw} = \M|_{u'} \}$.
+        
+        \item<4-> Each edge contributes one letter, hence there exists a $w\in\Delta_{\M|_u,\M|_{u'}}$ such that $|w|\leq\Pi_{t \in \M} 2^{|Exp(t)|}$.
+        
+        \item<5-> By assumption, $\exists w_0\in\LL(\pi)$ such that $\M|_{w_0}\vDash\psi$. Hence there is a $w\in\Delta_{\M,\M|_{w_0}}\cap\LL(\pi)$ such that $|w|\leq 2^\pi\times\Pi_{t \in \M} 2^{|Exp(t)|}$ and $\M|_w,s\vDash\psi$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lemma 1 Proof (Sketch)}
+    
+\end{frame}
+
+\begin{frame}{Model Checking Algorithm}
+\fontsize{9}{7.2}\selectfont
+\textbf{$\DecidePSPACE(\M,s,\varphi)$}
+	\begin{algorithmic}[1] %[1] enables line numbers
+		\IF{$\varphi=p$ is a propositional variable }
+		\STATE return $\T$ if $p \in V(s)$; $\Fa$ otherwise
+		\ENDIF
+		\IF{$\varphi = \neg\psi$}
+		\STATE return not $\DecidePSPACE(\M,s,\psi)$
+		\ENDIF
+		\IF{$\varphi = \psi'\vee \psi$}
+		\STATE return $\DecidePSPACE(\M, s, \psi)$ or $\DecidePSPACE(\M, s, \psi')$
+		\ENDIF
+		\IF{$\varphi = \ldiaarg\pi\psi$}
+		\FOR {all models $\M'$ in $\Gamma^{\M}$}\label{line:forallmodelstart}
+%		\IF{$\reach(\M, \M', \pi)$ is $\T$} 
+		\IF{$s$ is a world in $\M'$ and the oracle claims that $\M' = \M|_w$ for some word $w \in \LL(\pi)$}\label{line:oraclecall}
+		\STATE return $\DecidePSPACE(\M', s, \psi)$
+		\ENDIF
+		\ENDFOR\label{line:forallmodelend}
+		\STATE return $\Fa$
+		\ENDIF
+		\IF{$\varphi = \hat{K_i}\psi$}  	
+		\IF{$\exists t\in S$ such that $t\sim_i s$ and $\DecidePSPACE(\M, t, \psi)$} \label{line:K_i}
+%		\IF{there exists a world $t\in S$ such that $t\sim_i s$ and $\DecidePSPACE(\M, t, \psi)$} \label{line:K_i}
+		\STATE  return $\T$
+		\ELSE
+		\STATE  return $\Fa$
+		\ENDIF
+		\ENDIF
+	\end{algorithmic}
+\end{frame}
+
+\begin{frame}{Model Checking Algorithm: The Oracle}
+\textbf{A Non-Deterministic subroutine that decides $\M' = \M|_w$ for some $w\in\LL(\pi)$ given $\M = \ldiaarg{S,\sim,V,Exp}$ and $\M'$.}
+    \begin{algorithmic}[1] %[1] enables line numbers	    
+    \STATE$\pi' := \pi$
+	\FOR{ $i = 1$ to $2^{\pi}\times \Pi_{t \in S} 2^{|Exp(t)|}$ }
+	\IF{$\epsilon \in \LL(\pi')$ and $\M = \M'$}
+	\STATE \algoaccept
+	\ENDIF
+	\STATE guess a letter $a$ from $\Sigma$ 
+	\STATE $\pi' :=\pi'\setminus a$
+	\FOR{ each world $t$ in $\M$ }
+	\STATE $Exp(t) := Exp(t) \setminus a$\hfill // we modify $\M$ locally
+	\ENDFOR
+	\ENDFOR
+    \STATE	\algoreject
+	\end{algorithmic}
+\end{frame}
+
+\begin{frame}{Model Checking: Correctness}
+    \begin{block}{Theorem: Correctness}
+    The procedure $\DecidePSPACE(\M,s,\varphi)$ returns $\T$ iff $\M,s\vDash\varphi$.
+    \end{block}\pause
+    \textbf{Proof.}\\
+    Induction on the size of $\varphi$.\\\pause
+    \textbf{Base Case.} Case of propositional letter is trivial.\\\pause
+    For Inductive step, consider the case of $\M,s\vDash\ldiaarg{\pi}\psi$. (contd.)
+\end{frame}
+
+\begin{frame}{Model Checking: Correctness Proof}
+    $\M,s\vDash\ldiaarg{\pi}\psi$\\\pause
+    iff $\exists w\in\LL(\pi)$ such that $s$ survives and $\M|_w,s\vDash\psi$\\\pause
+    iff $\exists w\in\LL(\pi), \M'\in\Gamma^\M$ such that $\M' = \M|_w$ and $\M',s\vDash\psi$\\\pause
+    
+    Loop 11-15 goes over every possible $\M'\in\Gamma^M$\\\pause
+    The Oracle verifies whether $\M'=\M|_w$ for some $w\in\LL(\pi)$.\\\pause
+    By IH, $\M',s\vDash\psi$ iff $\DecidePSPACE(\M',s,\psi)$.
+\end{frame}
+
+\begin{frame}{Oracle Correctness(Sketch)}
+    
+\end{frame}
+
+\begin{frame}{Model Checking is in $PSPACE$}
+    \begin{block}{Theorem: $\DecidePSPACE$ is in $PSPACE$}
+    For a finite POL model $\M = \ldiaarg{S,\sim,V,Exp}$, $s\in S$ and $\varphi$, $\DecidePSPACE(\M,s,\varphi)$ uses polynomial space.
+    \end{block}
+    \textbf{Proof Idea. } For each of the cases except for $\varphi = \ldiaarg{\pi}\psi$, constant space is used.\\
+    Hence we shall look into the case when $\varphi = \ldiaarg{\pi}\psi$. 
+\end{frame}
+
+\begin{frame}{Checking is in $PSPACE$}
+    \begin{itemize}
+        \item<1-> Loop 11-15 searches through every model in $\Gamma^\M$.
+        \item<2-> We have an exponential upper bound on the size of $\Gamma^\M$. (Observation 2) 
+        \item<3-> Hence, given $\M$, we can update $\M$ to produce every possible $\M'$ until the exponential upper bound times without remembering the previous models. This takes polynomial space.
+        \item<4-> The Oracle runs a loop for exponential amount of times (Lemma 1) to non-deterministically guess $w\in\LL(\pi)$, letter by letter, and verifies whether $\M' = \M$.
+        \item<5-> Hence the subroutine is in $NPSPACE$, and by Savitch's Theorem, is in $PSPACE.$
+        \item<6-> Therefore, $\DecidePSPACE$ is in $PSPACE$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Space Complexity Proof (Sketch)}
+    
+\end{frame}
+
+\section{Lower Bound Results}
+
+\begin{frame}{Model Checking is $PSPACE$-Hard}
+    \begin{block}{Lower Bound 1}
+    The Model Checking problem of the $\existential$ fragment of POL is $\PSPACE$-Hard.
+    \end{block}\pause
+    \textbf{Proof Idea. } We will prove by reduction from Intersection Non-Emptiness Problem.
+\end{frame}
+
+\begin{frame}{Lower Bound 1 Proof}
+    \textbf{Proof. }
+    \begin{itemize}
+        \item<1-> \textbf{Intersection Non-Emptiness Problem}: Given a finite collection of DFAs $\{\automaton_1, \automaton_2,\ldots,\automaton_n\}$, decide $\bigcap_{i\in [1,n]}\LL(\automaton_i) = \emptyset$.
+        \item<2-> Kozen in 1977\footnotemark proved the problem to be $\PSPACE$-Complete.
+        \item<3-> We shall reduce this problem to an $\existential$ fragment of POL, that is, all the formulas are allowed diamond regular modalities in NNF.
+    \end{itemize}
+    \footnotetext[1]{Kozen,  D.  1977.    Lower  Bounds  for  Natural  Proof  Sys-tems.  In18th Annual Symposium on Foundations of Com-puter Science, Providence, Rhode Island, USA, 31 October- 1 November 1977, 254–266. IEEE Computer Society.}
+\end{frame}
+
+\begin{frame}{Lower Bound Proof 1 contd.}
+Consider the following construction:
+    \begin{itemize}
+        \item<1-> $\M = (S, \sim, V, Exp)$ where 
+    \begin{itemize}
+    	\item<2->     $S = \set{0,1, \dots, n} \cup \set{0', 1', \dots, (n-1)'}$.
+    	\item<3-> $\sim_1 = \set{(i, i'), (i, i), (i', i'), (i', i)  \suchthat i=0, \dots, n-1}$,
+    	$\sim_2 = \set{(i', i+1), (i', i'), (i+1, i+1), (i+1, i') \suchthat i=0, \dots, n-1}$,
+    	\item<4-> $V(s) = V(s') = \emptyset$ for all $s \leq n-1$, $V(n) = \set{p}$.
+    	\item<5->     $Exp(0) = Exp(0') = \Sigma^*$ and $Exp(i) = Exp(i') = \automaton_i$ for all $i=1\dots n$.
+    \end{itemize}
+    \item<6-> $s_0 = 0$.
+    \item<7-> $\phi = \ldiaarg{\Sigma^*} (\hat K_1\hat K_2)^{n+1} p$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lower Bound Proof 1 contd.}
+    \begin{columns}
+    \column{0.5\textwidth}
+    \begin{tikzpicture}[node distance = 1.5cm]
+    \node(0) [fastate] {$0$};
+    \node(0') [fastate, right of=0] {$0'$};
+    \node(1) [fastate, below of=0] {$1$};
+    \node(1') [fastate, right of=1] {$1'$};
+    
+    \node(d1) [dots, below of=1, yshift = 1cm] {};
+    \node(d2) [dots, right of=d1] {};
+    \node(d3) [dots, below of=d1, yshift = 1cm] {};
+    \node(d4) [dots, right of=d3] {};
+    \node(d5) [dots, below of=d3, yshift = 1cm] {};
+    \node(d6) [dots, right of=d5] {};
+    
+    \node(n_1) [fastate, below of=d5] {\tiny$ n-1$};
+    \node(n_1') [fastate, right of=n_1] {\tiny$(n-1)'$};
+    \node(n) [fastate, below of=n_1] {$n$};
+    
+    \draw[red] (0)--(0');
+    \draw[red] (1)--(1');
+    \draw[red] (n_1)--(n_1');
+    \draw[blue] (0')--(1);
+    \draw[blue] (1')--(d3);
+    \draw[blue] (d6)--(n_1);
+    \draw[blue] (n_1')--(n);
+    \end{tikzpicture}
+    
+    \column{0.5\textwidth}
+    $$\M,0\vDash \ldiaarg{\Sigma^*}(\hat{K_1}\hat{K_2})^{n+1}p$$\\\pause
+    iff $\exists w\in\Sigma^*\mid w\in Pre(\Sigma^*)\mbox{ and }$\\\pause
+    $\M|_w,0\vDash(\hat{K_1}\hat{K_2})^{n+1}p$\\\pause
+    iff $\exists w\in\Sigma^*\mid\mbox{ there is a path from $0$ to $n$ in }\M|_w$\\\pause
+    This path can only exist when $\bigcap_{i\in[1,n]}\automaton_i\neq\emptyset$.
+    \end{columns}
+    
+    
+\end{frame}
+
+\begin{frame}{Lower Bound 2}
+    \begin{block}{$\starfree$ is $\PSPACE$-Hard}
+    If all the regular modalities in a formula are $\starfree$, then the model checking is $\PSPACE$-Hard.
+    \end{block}\pause
+    \textbf{Proof Idea. }\\
+    \begin{itemize}
+        \item<1-> A formula of form $\varphi = (Q_1 x_1) (Q_2 x_2)...(Q_n)(x_n)\psi(x_1,\ldots,x_n)$, such that $Q_i\in\{\exists, \forall\}$ and $\psi$ is a propositional formula in CNF over $n$ variables and has $m$ clauses, is a Quantified Boolean Function.
+        
+        \item<2-> Given such a $\varphi$, decide whether it is True is the TQBF problem
+        
+        \item<3-> TQBF is $\PSPACE$-Complete.
+        
+        \item<4-> We will use reduction from TQBF.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lower Bound 2 contd.}
+    \begin{itemize}
+        \item<1-> Consider the translations $\tr(x_i) = a_i$, $\tr(\neg{x_i}) = a'_i$, $\tr(\exists x_i) = \ldiaarg{a_i + a'_i}$ and $\tr(\forall x_i) = [a_i + a'_i]$ for all $i\in [n]$.
+        
+        \item<2->  Alphabet: $\Sigma_\varphi = \cup_{i\in [n]}\{\tr(x_i), \tr(\neg{ x_i})\}$.
+        %corresponding to positive and negative literal of the variable $x_i$ respectively.
+        \item<3-> Model: $\M_\varphi = \langle S_\varphi,\sim_\varphi,V_\varphi,Exp_\varphi \rangle$, where
+        \begin{itemize}
+            \item<4-> $S_\varphi = \{1,\dots, m \}$.
+            \item<5-> A single agent $1$ and $\forall i, j\in S_{\varphi}$, $i\sim_1 j$. %\todo{correct the indices: $i$ is for indexing the propositions, use $j$ instead}
+            \item<6-> $V_\varphi(j) = \{p_j\}$ for all $j\in S_{\varphi}$. %\todo{use $j$ instead}
+            \item<7-> For each clause $c_j\in C$, $Exp_\varphi(j) = (\sum_{\ell\in c_j}(\Sigma_{\varphi}\setminus\{\tr(\ell), \tr(\neg{\ell})\})^*\tr(\ell)(\Sigma_{\varphi}\setminus\{\tr(\ell), \tr(\neg{\ell})\})^*)$, where the sum is over the literals in the clause $c_j$. 
+            % For example, for a clause $c_j = (x_3\vee \neg{x_4}\vee x_2)$ in $\varphi(x_1,..,x_n)$, $Exp_\varphi(j) = ((\Sigma\setminus\{a_3, a'_3\})^*a_3(\Sigma\setminus\{a_3,a'_3\})^* + (\Sigma\setminus\{a_4, a'_4\})^*a'_4(\Sigma\setminus\{a'_4, a_4\})^* + (\Sigma\setminus\{a_2,a'_2\})^*a_2(\Sigma\setminus\{a_2, a'_2\})^*)$.
+            
+            %\todo{add a remark that the star in Exp could also be removed no? simply repeat the pattern $n$ times (see the formula)}
+        \end{itemize}
+        \item<8-> Formula: $\psi := \tr(Q_1x_1)\dots \tr(Q_nx_n)\bigwedge_{i\in [m]}(\hat{K_1}p_i)$.
+        \item<9-> Starting world: $s$ is any world from $S$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lower Bound 2 contd.}
+    An Example of a clause gadget:\\
+    For a clause $c_j = (x_3\vee \neg{x_4}\vee x_2)$ in $\varphi(x_1,..,x_n)$, $Exp_\varphi(j) = ((\Sigma\setminus\{a_3, a'_3\})^*a_3(\Sigma\setminus\{a_3,a'_3\})^* + (\Sigma\setminus\{a_4, a'_4\})^*a'_4(\Sigma\setminus\{a'_4, a_4\})^* + (\Sigma\setminus\{a_2,a'_2\})^*a_2(\Sigma\setminus\{a_2, a'_2\})^*)$.
+\end{frame}
+
+\begin{frame}{Lower Bound 2 contd.}
+    Assuming $\varphi(x_1,x_2,...,x_n)$ to be $True$, to prove $\M_{\varphi},s\vDash\psi$ for an $s S_\varphi$.
+    \begin{itemize}
+        \item<1-> There exists an assignment set $(l_1,l_2,...,l_n)$, where $l_i\in\{x_i,\neg{x_i}\}$ such that $\varphi$
+    \end{itemize}
+\end{frame}
+\end{document}
