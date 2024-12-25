@@ -1,5 +1,0 @@
-\babel@toc {portuguese}{}\relax 
-\beamer@sectionintoc {1}{Background}{3}{0}{1}
-\beamer@sectionintoc {2}{Model-Checking and Satisfiability}{52}{0}{2}
-\beamer@sectionintoc {3}{Decidability: A High Level Idea}{88}{0}{3}
-\beamer@sectionintoc {4}{Conclusion}{107}{0}{4}
