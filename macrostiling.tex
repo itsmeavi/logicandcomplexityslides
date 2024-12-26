@@ -1,0 +1,54 @@
+
+%\tile x y colorleft colorup colorright colorbottom
+\newcommand{\tile}[6]{
+	%left
+	\draw[fill=#3] (#1,#2) -- (#1,#2+1) -- (#1+0.5, #2+0.5) -- (#1, #2);
+	%
+	%up
+	\draw[fill=#4] (#1,#2+1)-- (#1+1,#2+1) -- (#1 +0.5, #2+0.5) -- (#1, #2+1);
+	%
+	%right
+	\draw[fill=#5] (#1+1,#2)-- (#1+1,#2+1) -- (#1 +0.5, #2+0.5) -- (#1 +1, #2);
+	%
+	%bottom
+	\draw[fill=#6] (#1,#2)-- (#1 +1,#2) -- (#1 +0.5, #2+0.5) -- (#1, #2);
+	%
+	\draw[fill=black] (#1+0.5, #2+0.5) -- (#1+0.6, #2+0.4) -- (#1+0.4, #2+0.4) -- cycle;
+}
+
+
+\newcommand{\tilewc}[4]{\tikz{\tile{0}{0}{#1}{#2}{#3}{#4}}}
+\newcommand{\tilewcsmall}[4]{\tikz[scale=0.5]{\tile{0}{0}{#1}{#2}{#3}{#4}}}
+
+
+\newcommand{\tiletextcolorwc}[4]{\raisebox{-5mm}{\scalebox{0.7}{\tikz[scale=1.5]{\tiletextcolor{0}{0}{#1}{#2}{#3}{#4}}}}}
+
+
+
+
+\newcommand{\tiletextwc}[4]{\raisebox{-5mm}{\scalebox{0.5}{\tikz[scale=1.5]{\tiletext{0}{0}{#1}{#2}{#3}{#4}}}}}
+\newcommand{\tiletextwcsmall}[4]{\raisebox{-2mm}{\scalebox{0.5}{\tikz[scale=1]{\tiletext{0}{0}{#1}{#2}{#3}{#4}}}}}
+\newcommand{\tiletextwcbig}[4]{\tikz[scale=2]{\tiletext{0}{0}{#1}{#2}{#3}{#4}}}
+
+\newcommand{\tiletext}[6]{
+	\tile {#1} {#2} {none} {none} {none} {none}
+	\node at (#1+0.25, #2+0.5) {#3}; %left
+	\node at (#1+0.5, #2+0.8) {#4}; %up
+	\node at (#1+0.75, #2+0.5) {#5}; %right
+	\node at (#1+0.5, #2+0.1) {#6}; %bottom
+}
+
+
+
+
+\newcommand{\tilered}{red!80}
+\newcommand{\tileyellow}{yellow!50}
+\newcommand{\tilegreen}{green!70}
+\newcommand{\tileblue}{blue!50}
+\newcommand{\tilewhite}{white}
+
+\newcommand{\whitetile}[2]{\tile{#1}{#2}{white}{white}{white}{white}}
+
+\newcommand{\anytile}{t}
+\newcommand{\tileseed}{t_0}
+\newcommand{\tileset}{T}

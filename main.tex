@@ -30,10 +30,67 @@
 
 \setlength{\parskip}{1em}
 
+%---------letters----------
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\GG}{\mathbb{G}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\II}{\mathbb{I}}
+\newcommand{\JJ}{\mathbb{J}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\MM}{\mathbb{M}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\SS}{\mathbb{S}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\UU}{\mathbb{U}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\WW}{\mathbb{W}}
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\YY}{\mathbb{Y}}
+\newcommand{\ZZ}{\mathbb{Z}}
+% -----------
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+
+
 \newcommand\ldiaarg[1]{\langle#1\rangle}
 
 \newcommand{\M}{\mathcal{M}}
-\newcommand{\LL}{\mathcal{L}} %for automata
+% \newcommand{\LL}{\mathcal{L}} %for automata
 
 \newcommand{\POL}{\mathsf{POL}}
 \newcommand{\EPL}{\mathsf{EPL}}
@@ -87,12 +144,17 @@
 
 \renewcommand{\phi}{\varphi}
 
+% tiling macros
+\input{macrostiling.tex}
+
+
 \tikzstyle{rectNode} = [rectangle, text centered]
 \tikzstyle{fastate} = [circle, text centered, draw = black]
 \tikzstyle{dots} = [circle, draw = black, fill = black, inner sep=1pt]
 
 \tikzstyle{world} = [draw]
 \tikzstyle{worldwhite} = [draw = white]
+\tikzstyle{tape} = [draw,thick,minimum width=1,minimum height=1]
 
 \makeatletter
 \let\HL\hl
@@ -128,8 +190,426 @@
 \end{frame}
 
 \section{Theory of Computation}
-\begin{frame}{}
-    
+\begin{frame}{A System of Proofs}
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \begin{tikzpicture}
+                \node (h) at (0,0) {\includegraphics[width = 2cm]{images/hilbert.jpeg}};
+                \node (q) at (2,0) {\includegraphics[width = 2cm]{images/question.jpg}};
+            \end{tikzpicture}
+        \end{column}
+        \begin{column}{0.7\textwidth}
+            \begin{itemize}
+                \item<1-> A Formal System of Mathematical Proofs
+                \begin{itemize}
+                    \item<2-> Axioms $\cA = \{A_1, A_2,\ldots, A_k\}$
+                    \item<3-> Truth-preserving rules $\cI = \{I_1,\ldots, I_m\}$
+                            \[
+                                I_i = \infer{C}{%
+                                            S_1,
+                                            S_2,\ldots,
+                                            S_n
+                                        }
+                            \] 
+                \end{itemize}
+                \item<4-> Objective: Anything true has a proof
+
+                \begin{tikzpicture}[scale=0.8, transform shape]
+                    \node (ai) at (0,0) {$A_i$};
+                    \node (aj) at (1,0) {$A_j$};
+                    \node (ak) at (2,0) {$A_k$};
+                    \node (al) at (3,0) {$A_\ell$};
+                    \node (t1) at (0.5,1) {$T_1$};
+                    \node (t2) at (2.5,1) {$T_2$};
+                    \node (t) at (1.5,2) {$T$};
+
+                    \draw[->] (ai) edge node[left]{$I_{i'}$} (t1);
+                    \draw[->] (aj) edge (t1);
+                    \draw[->] (ak) edge (t2);
+                    \draw[->] (al) edge node[right]{$I_{j'}$} (t2);
+                    \draw[->] (t1) edge node[left]{$I_{k'}$} (t);
+                    \draw[->] (t2) edge (t);
+                \end{tikzpicture}
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Hilbert's Questions}
+    \begin{tikzpicture}
+        \node (h) at (0,0) {\includegraphics[width = 1cm]{images/hilbert.jpeg}};
+        \node (q1) at (5,3) {$1.$};
+        \node (q2) at (5,0) {$2.$};
+        \node (q3) at (5,-3) {$3.$};
+        \draw[->] (h) edge node[above]{\Large ?} (q1);
+        \draw[->] (h) edge node[above]{\Large ?} (q2);
+        \draw[->] (h) edge node[above]{\Large ?} (q3);\pause 
+
+        \node (q1q) at (6,3) {Complete};
+        \node (q2q) at (6,0) {Consistent};
+        \node (q1q) at (6,-3) {Decidable};\pause
+
+        \node (q1dec) at (7,3) {\textcolor{red}{\Large X}};
+        \node (q1god) at (8,3) {\includegraphics[width = 1cm]{images/godel.jpg}};
+        \node (q1state) at (7.5,2) {Some Truths cannot be proven};\pause
+
+        \node (q2dec) at (7,0) {\textcolor{Fuchsia}{\Large ?}};
+        \node (q2god) at (8,0) {\includegraphics[width = 1cm]{images/godel.jpg}};
+        \node (q2state) at (7.5,-1) {Proving its own consistency beyond system};\pause
+
+        \node (q3dec) at (7.3,-3) {\includegraphics[width = 1cm]{images/wonder.jpg}};
+        \node (q3talk) at (8.3,-3) {This talk};
+        \node (q3state) at (7.5,-4) {Given a statement and axioms, is there a proof?};
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Computability}
+    \begin{itemize}
+        \item \textbf{NEED:} Given $S$ and $\cA$, "procedure" to decide whether there is a proof
+        \begin{itemize}
+            \item For any axiom system $(\cA,\cI)$ and any statement $S$
+            $ f(S,\cA,\cI) = 
+            \begin{cases} 
+                1 & \cA\vdash_\cI S \\
+                0 & \cA\nvdash_\cI S  
+            \end{cases}
+            $
+            \item Is $f$ \emph{computable}?
+        \end{itemize}
+        \item What is \emph{computability}?
+        \item \textbf{Example 1}: $\forall x\in\NN, f(x) = x^2 + 2x + 1$
+        \begin{itemize}
+            \item $f(13) = ?$
+        \end{itemize}
+        \item \textbf{Example 2}: $\forall x\in\NN,\forall y\in\NN f(x,y) = x^y + xy + 1$
+        \begin{itemize}
+            \item $f(13,12) = ?$
+            \item \bf HARDER
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Computability}
+    \begin{itemize}
+        \item Proper Tiling:
+        \begin{itemize}
+            \item Given a set of tiles $\cT$
+            \item[]
+            \begin{tikzpicture}[scale=0.5]
+            \node[text width=2cm] at (-2, 1.5) 
+            {					
+                \tilewcsmall \tilewhite \tilewhite \tilegreen\tilered
+                
+                \tilewcsmall \tilegreen\tilewhite\tilegreen\tilered
+                
+                \tilewcsmall \tilegreen\tilewhite\tilewhite\tilewhite
+                
+                \tilewcsmall \tilewhite \tilered\tilewhite\tilered
+            };
+            
+            \node[text width=2cm] at (-0.5, 1.5) {
+                \tilewcsmall \tilegreen \tilewhite\tilegreen\tilewhite
+                
+                \tilewcsmall \tilewhite \tilewhite\tilewhite\tilegreen
+                
+                \tilewcsmall \tilewhite\tilered\tilegreen\tilewhite
+                
+                \tilewcsmall \tilegreen\tilered\tilered\tilewhite
+                
+                \tilewcsmall \tilered	\tilegreen\tilewhite\tilewhite
+                
+            };
+            \end{tikzpicture}
+            \item A Proper tiling on a finite grid:
+            \item[] \begin{tikzpicture}[scale=0.5, baseline=-15mm]
+                % posx posy left up right down
+                      \tile 0 1 \tilewhite \tilewhite \tilegreen\tilewhite
+                      \tile 1 1 \tilegreen\tilewhite\tilegreen\tilewhite
+                      \tile 2 1 \tilegreen\tilewhite\tilegreen\tilewhite
+                      \tile 3 1 \tilegreen\tilewhite\tilered\tilered
+                      \tile 0 0 \tilewhite \tilewhite \tilegreen\tilered
+                      \tile 1 0 \tilegreen\tilewhite\tilegreen\tilered
+                      \tile 2 0 \tilegreen\tilewhite\tilewhite\tilewhite
+                      \tile 3 0 \tilewhite\tilered\tilewhite\tilered
+                      \tile 0 {-1} \tilewhite \tilered\tilewhite\tilered
+                      \tile 1 {-1} \tilewhite \tilered\tilewhite\tilered
+                      \tile 2 {-1} \tilewhite \tilewhite\tilewhite\tilegreen
+                      \tile 3 {-1} \tilewhite\tilered\tilewhite\tilered
+                      \tile 0 {-2} \tilewhite\tilered\tilegreen\tilewhite
+                      \tile 1 {-2} \tilegreen\tilered\tilered\tilewhite
+                      \tile 2 {-2} \tilered	\tilegreen\tilewhite\tilewhite
+                      \tile 3 {-2} \tilewhite\tilered\tilewhite\tilered
+                      \end{tikzpicture}
+        \end{itemize} 
+        \item $ f(\cT) = 
+            \begin{cases} 
+                1 & \mbox{Proper tiling covering infinite grid} \\
+                0 & \mbox{No such proper tiling}  
+            \end{cases}
+            $
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Model of Computability}
+    \begin{itemize}
+        \item $f(x) = x^2 + 2x +1$. 
+        \item $f(13) = 13^2 + (2x13) + 1$
+        \item Local rules:
+                \begin{itemize}
+                    \item Rule of multiplication
+                    \item Rule of addition
+                \end{itemize} 
+        \item Local states:
+                \begin{enumerate}
+                    \item Initial $13^2 + (2x13) + 1$
+                    \item All multiplication done $169 + 26 + 1$
+                    \item All addition done $196$
+                    \item Final value $196$
+                \end{enumerate}
+        \item \textbf{NEED: MODEL} Anything that model can compute is computable
+        \item Turing Machine, Lambda Calculus 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Turing Machine}
+    \begin{tikzpicture}
+        \node[tape] (t1) at (4,1)  {$0$};
+        \node[tape] (t2) at (4.5,1)  {$1$};
+        \node[tape] (t3) at (5,1)  {$0$};
+        \node[tape] (t4) at (5.5,1)  {$0$};
+        \node[tape] (t5) at (6,1)  {$1$};
+        \node[tape] (t6) at (6.5,1)  {$0$};
+        \node[tape] (t7) at (7,1)  {$0$};
+        \node[tape] (t8) at (7.5,1)  {$0$};
+        \node[tape] (t9) at (8,1)  {$0$};
+        \node (d) at (9,1) {$\ldots\ldots$};
+        \node (d2) at (3,1) {$\ldots\ldots$};\pause
+        \node[align = center, rectangle, draw] (M) at (4.5,-3) 
+        {\begin{tikzpicture}
+                \node (s) at (0,0) {\Large \textbf{$q_0$}};\pause
+                \node[align = center, circle, draw, very thick] (q0) at (0,-2) {\textbf{$q_0$}};
+                \node[align = center, circle, draw] (q1) at (3,-2) {$q_1$};
+                \node[align = center, circle, draw] (q3) at (0,-5) {$q_3$};
+
+                \draw[->, very thick] (q0) edge node[above]{\small $0:1,R$} (q1);
+                \draw[->] (q0) edge node[left]{\small $1:0,R$} (q3);
+                \draw[->] (q1) .. controls (2,-4.5) .. node[below]{\small $~~~~~~0:1,L$} (q3);
+                \draw[->] (q1) edge [loop above] node{\small $1:0,R$} (q1);
+                \draw[->] (q3) edge node[above]{\small $1:1,R~~~~~~~$} (q1);
+                \draw[->] (q3) edge [loop left] node{\small $0:0,R$} (q3);
+
+        \end{tikzpicture}};
+        \draw[->] (M) edge (t1);
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{The Turing Machine}
+    \begin{tikzpicture}
+        \node[tape] (t1) at (4,1)  {$0$};
+        \node[tape] (t2) at (4.5,1)  {$1$};
+        \node[tape] (t3) at (5,1)  {$0$};
+        \node[tape] (t4) at (5.5,1)  {$0$};
+        \node[tape] (t5) at (6,1)  {$1$};
+        \node[tape] (t6) at (6.5,1)  {$0$};
+        \node[tape] (t7) at (7,1)  {$0$};
+        \node[tape] (t8) at (7.5,1)  {$0$};
+        \node[tape] (t9) at (8,1)  {$0$};
+        \node (d) at (9,1) {$\ldots\ldots$};
+        \node (d2) at (3,1) {$\ldots\ldots$};
+        \node[align = center, rectangle, draw] (M) at (4.5,-3) 
+        {\begin{tikzpicture}
+                \node (s) at (0,0) {\Large \textbf{$q_0$}};
+                \node[align = center, circle, draw, very thick] (q0) at (0,-2) {\textbf{$q_0$}};
+                \node[align = center, circle, draw] (q1) at (3,-2) {$q_1$};
+                \node[align = center, circle, draw] (q3) at (0,-5) {$q_3$};
+
+                \draw[->, very thick] (q0) edge node[above]{\small $0:1,R$} (q1);
+                \draw[->] (q0) edge node[left]{\small $1:0,R$} (q3);
+                \draw[->] (q1) .. controls (2,-4.5) .. node[below]{\small $~~~~~~0:1,L$} (q3);
+                \draw[->] (q1) edge [loop above] node{\small $1:0,R$} (q1);
+                \draw[->] (q3) edge node[above]{\small $1:1,R~~~~~~~$} (q1);
+                \draw[->] (q3) edge [loop left] node{\small $0:0,R$} (q3);
+
+        \end{tikzpicture}};
+        \draw[->] (M) edge (t1);
+    \end{tikzpicture}
+\end{frame}
+\begin{frame}{The Turing Machine}
+    \begin{tikzpicture}
+        \node[tape] (t1) at (4,1)  {$1$};
+        \node[tape] (t2) at (4.5,1)  {$1$};
+        \node[tape] (t3) at (5,1)  {$0$};
+        \node[tape] (t4) at (5.5,1)  {$0$};
+        \node[tape] (t5) at (6,1)  {$1$};
+        \node[tape] (t6) at (6.5,1)  {$0$};
+        \node[tape] (t7) at (7,1)  {$0$};
+        \node[tape] (t8) at (7.5,1)  {$0$};
+        \node[tape] (t9) at (8,1)  {$0$};
+        \node (d) at (9,1) {$\ldots\ldots$};
+        \node (d2) at (3,1) {$\ldots\ldots$};
+        \node[align = center, rectangle, draw] (M) at (4.5,-3) 
+        {\begin{tikzpicture}
+                \node (s) at (0,0) {\Large \textbf{$q_1$}};
+                \node[align = center, circle, draw] (q0) at (0,-2) {\textbf{$q_0$}};
+                \node[align = center, circle, draw, very thick] (q1) at (3,-2) {$q_1$};
+                \node[align = center, circle, draw] (q3) at (0,-5) {$q_3$};
+
+                \draw[->] (q0) edge node[above]{\small $0:1,R$} (q1);
+                \draw[->] (q0) edge node[left]{\small $1:0,R$} (q3);
+                \draw[->] (q1) .. controls (2,-4.5) .. node[below]{\small $~~~~~~0:1,L$} (q3);
+                \draw[->, very thick] (q1) edge [loop above] node{\small $1:0,R$} (q1);
+                \draw[->] (q3) edge node[above]{\small $1:1,R~~~~~~~$} (q1);
+                \draw[->] (q3) edge [loop left] node{\small $0:0,R$} (q3);
+
+        \end{tikzpicture}};
+        \draw[->] (M) edge (t2);
+    \end{tikzpicture}
+\end{frame}
+\begin{frame}{The Turing Machine}
+    \begin{tikzpicture}
+        \node[tape] (t1) at (4,1)  {$1$};
+        \node[tape] (t2) at (4.5,1)  {$0$};
+        \node[tape] (t3) at (5,1)  {$0$};
+        \node[tape] (t4) at (5.5,1)  {$0$};
+        \node[tape] (t5) at (6,1)  {$1$};
+        \node[tape] (t6) at (6.5,1)  {$0$};
+        \node[tape] (t7) at (7,1)  {$0$};
+        \node[tape] (t8) at (7.5,1)  {$0$};
+        \node[tape] (t9) at (8,1)  {$0$};
+        \node (d) at (9,1) {$\ldots\ldots$};
+        \node (d2) at (3,1) {$\ldots\ldots$};
+        \node[align = center, rectangle, draw] (M) at (4.5,-3) 
+        {\begin{tikzpicture}
+                \node (s) at (0,0) {\Large \textbf{$q_1$}};
+                \node[align = center, circle, draw] (q0) at (0,-2) {\textbf{$q_0$}};
+                \node[align = center, circle, draw, very thick] (q1) at (3,-2) {$q_1$};
+                \node[align = center, circle, draw] (q3) at (0,-5) {$q_3$};
+
+                \draw[->] (q0) edge node[above]{\small $0:1,R$} (q1);
+                \draw[->] (q0) edge node[left]{\small $1:0,R$} (q3);
+                \draw[->, very thick] (q1) .. controls (2,-4.5) .. node[below]{\small $~~~~~~0:1,L$} (q3);
+                \draw[->] (q1) edge [loop above] node{\small $1:0,R$} (q1);
+                \draw[->] (q3) edge node[above]{\small $1:1,R~~~~~~~$} (q1);
+                \draw[->] (q3) edge [loop left] node{\small $0:0,R$} (q3);
+
+        \end{tikzpicture}};
+        \draw[->] (M) edge (t3);
+    \end{tikzpicture}
+\end{frame}
+\begin{frame}{The Turing Machine}
+    \begin{tikzpicture}
+        \node[tape] (t1) at (4,1)  {$1$};
+        \node[tape] (t2) at (4.5,1)  {$0$};
+        \node[tape] (t3) at (5,1)  {$1$};
+        \node[tape] (t4) at (5.5,1)  {$0$};
+        \node[tape] (t5) at (6,1)  {$1$};
+        \node[tape] (t6) at (6.5,1)  {$0$};
+        \node[tape] (t7) at (7,1)  {$0$};
+        \node[tape] (t8) at (7.5,1)  {$0$};
+        \node[tape] (t9) at (8,1)  {$0$};
+        \node (d) at (9,1) {$\ldots\ldots$};
+        \node (d2) at (3,1) {$\ldots\ldots$};
+        \node[align = center, rectangle, draw] (M) at (4.5,-3) 
+        {\begin{tikzpicture}
+                \node (s) at (0,0) {\Large \textbf{$q_3$}};
+                \node[align = center, circle, draw] (q0) at (0,-2) {\textbf{$q_0$}};
+                \node[align = center, circle, draw] (q1) at (3,-2) {$q_1$};
+                \node[align = center, circle, draw, very thick] (q3) at (0,-5) {$q_3$};
+
+                \draw[->] (q0) edge node[above]{\small $0:1,R$} (q1);
+                \draw[->] (q0) edge node[left]{\small $1:0,R$} (q3);
+                \draw[->] (q1) .. controls (2,-4.5) .. node[below]{\small $~~~~~~0:1,L$} (q3);
+                \draw[->] (q1) edge [loop above] node{\small $1:0,R$} (q1);
+                \draw[->] (q3) edge node[above]{\small $1:1,R~~~~~~~$} (q1);
+                \draw[->, very thick] (q3) edge [loop left] node{\small $0:0,R$} (q3);
+
+        \end{tikzpicture}};
+        \draw[->] (M) edge (t2);
+    \end{tikzpicture}
+\end{frame}
+\begin{frame}{The Turing Machine}
+    \begin{tikzpicture}
+        \node[tape] (t1) at (4,1)  {$1$};
+        \node[tape] (t2) at (4.5,1)  {$0$};
+        \node[tape] (t3) at (5,1)  {$1$};
+        \node[tape] (t4) at (5.5,1)  {$0$};
+        \node[tape] (t5) at (6,1)  {$1$};
+        \node[tape] (t6) at (6.5,1)  {$0$};
+        \node[tape] (t7) at (7,1)  {$0$};
+        \node[tape] (t8) at (7.5,1)  {$0$};
+        \node[tape] (t9) at (8,1)  {$0$};
+        \node (d) at (9,1) {$\ldots\ldots$};
+        \node (d2) at (3,1) {$\ldots\ldots$};
+        \node[align = center, rectangle, draw] (M) at (4.5,-3) 
+        {\begin{tikzpicture}
+                \node (s) at (0,0) {\Large \textbf{$q_3$}};
+                \node[align = center, circle, draw] (q0) at (0,-2) {\textbf{$q_0$}};
+                \node[align = center, circle, draw] (q1) at (3,-2) {$q_1$};
+                \node[align = center, circle, draw, very thick] (q3) at (0,-5) {$q_3$};
+
+                \draw[->] (q0) edge node[above]{\small $0:1,R$} (q1);
+                \draw[->] (q0) edge node[left]{\small $1:0,R$} (q3);
+                \draw[->] (q1) .. controls (2,-4.5) .. node[below]{\small $~~~~~~0:1,L$} (q3);
+                \draw[->] (q1) edge [loop above] node{\small $1:0,R$} (q1);
+                \draw[->, very thick] (q3) edge node[above]{\small $1:1,R~~~~~~~$} (q1);
+                \draw[->] (q3) edge [loop left] node{\small $0:0,R$} (q3);
+
+        \end{tikzpicture}};
+        \draw[->] (M) edge (t3);
+    \end{tikzpicture}
+\end{frame}
+\begin{frame}{The Turing Machine}
+    \begin{tikzpicture}
+        \node[tape] (t1) at (4,1)  {$0$};
+        \node[tape] (t2) at (4.5,1)  {$1$};
+        \node[tape] (t3) at (5,1)  {$0$};
+        \node[tape] (t4) at (5.5,1)  {$0$};
+        \node[tape] (t5) at (6,1)  {$1$};
+        \node[tape] (t6) at (6.5,1)  {$0$};
+        \node[tape] (t7) at (7,1)  {$0$};
+        \node[tape] (t8) at (7.5,1)  {$0$};
+        \node[tape] (t9) at (8,1)  {$0$};
+        \node (d) at (9,1) {$\ldots\ldots$};
+        \node (d2) at (3,1) {$\ldots\ldots$};
+        \node[align = center, rectangle, draw] (M) at (4.5,-3) 
+        {\begin{tikzpicture}
+                \node (s) at (0,0) {\Large \textbf{$q_1$}};
+                \node[align = center, circle, draw] (q0) at (0,-2) {\textbf{$q_0$}};
+                \node[align = center, circle, draw, very thick] (q1) at (3,-2) {$q_1$};
+                \node[align = center, circle, draw] (q3) at (0,-5) {$q_3$};
+
+                \draw[->] (q0) edge node[above]{\small $0:1,R$} (q1);
+                \draw[->] (q0) edge node[left]{\small $1:0,R$} (q3);
+                \draw[->, very thick] (q1) .. controls (2,-4.5) .. node[below]{\small $~~~~~~0:1,L$} (q3);
+                \draw[->] (q1) edge [loop above] node{\small $1:0,R$} (q1);
+                \draw[->] (q3) edge node[above]{\small $1:1,R~~~~~~~$} (q1);
+                \draw[->] (q3) edge [loop left] node{\small $0:0,R$} (q3);
+
+        \end{tikzpicture}};
+        \draw[->] (M) edge (t4);
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{The Turing Machine}
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \begin{tikzpicture}
+                \node (turing) at (0,0) {\includegraphics[width = 3cm]{images/turing.jpg}}; 
+            \end{tikzpicture}
+        \end{column}
+        \begin{column}{0.7\textwidth}
+            \begin{itemize}
+                \item $\cM = \ldiaarg{Q,q_0\in Q, \Sigma, \delta, F\subseteq Q}$
+                    \begin{itemize}
+                        \item $Q$: finite set of states
+                        \item $\Sigma$: alphabet
+                        \item $\delta:Q\times\Sigma\rightarrow Q\times\Sigma\cup\{R,L\}$ transition rule
+                    \end{itemize}
+                \item Decision functions:~$f(x\in\{0,1\}^\star)\in\{0,1\}$
+                \item \textbf{Other MODELS}: Church's Lambda Calculus
+
+            \end{itemize}
+        \end{column}
+    \end{columns}
 \end{frame}
  
 \end{document}
