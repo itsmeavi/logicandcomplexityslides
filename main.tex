@@ -824,21 +824,117 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Model-Checking Hierarchy}
+\begin{frame}{Definability of Classes}
     \begin{itemize}
-        \item What is model-checking?
+        \item $\cL = \{x\in\Sigma^\star\mid x\vDash\varphi\}$
         \begin{itemize}
-            \item Given model and a formula, is formula true in model?
-            \item Proposition Logic: $\ldiaarg{10010\ldots01}\vDash\varphi$?
-            \item FOL: $\ldiaarg{\cD,\cI,\Pi}\vDash\varphi$?
+            \item $\varphi$: Property or \textbf{Query}
+            \item $x$ can represent any finite structure
+            \item \textbf{Example}: $x$: Graph\\
+            ~~~~~~~~~~~~~~$\varphi$: "Is there a triangle?"
+            \item \textbf{Example}: $x$: Graph\\
+            ~~~~~~~~~~~~~~$\varphi$: "Is it $3$-colorable?"
         \end{itemize}
-        \item Model-checking Prop $\varphi\in\PTime~~~(\Sigma^\PTime_0)$
-        \item Add existential quantifier
-        \item[] Model-check $\exists x_1\exists x_2\ldots\exists x_n\varphi\in\NP~~~(\Sigma^\PTime_1)$
-        \item Add universal quantifier
-        \item[] Model-check $\forall x_1\forall x_2\ldots\forall x_n\varphi\in co-\NP~~~(\Pi^\PTime_1)$
-        \item Note: $\PTime\subseteq \NP\cap co-\NP$
-        \item[] Infact, more generally...
+        \item A $\cL$ is \emph{definable} by a query $\varphi$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Definability of Classes}
+    \begin{itemize}
+        \item Triangle in a graph
+        \begin{itemize}
+            \item \textbf{INPUT:} $G = \ldiaarg{V, E\subseteq V\times V}$
+            \item The property/query
+            \item[]
+            \begin{align*}
+            \varphi =  \exists x\exists y\exists z &(\neg(x=y)\wedge\neg(y=z)\wedge\neg(x=z)\\
+                                                    &\wedge E(x,y)\wedge E(y,z)\wedge E(x,z))
+            \end{align*}
+        \end{itemize}
+
+        \item 3-Colorable graph
+        \begin{itemize}
+            \item \textbf{INPUT:} $G = \ldiaarg{V, E\subseteq V\times V}$
+            \item The property/query
+            \item[]
+            \begin{align*}
+            \varphi =  \exists R\subseteq V&\exists G\subseteq V\exists B\subseteq V (\forall x (R(x)\vee B(x)\vee G(s))\wedge\\
+                                            &\forall x (\neg (R(x)\wedge B(x))\wedge\neg(B(x)\wedge G(x))\wedge\neg(R(x)\wedge G(x)))\wedge\\
+                                            &\forall x\forall y(E(x,y)\rightarrow(\neg(R(x)\wedge R(y)\wedge\neg(G(x)\wedge G(y))\wedge\\
+                                                                                    &\neg(B(x)\wedge B(y)))))
+            \end{align*}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Definability of Classes}
+    \begin{itemize}
+        \item Triangle in a graph~~~~~\textcolor{red}{$\PTime$}
+        \begin{itemize}
+            \item \textbf{INPUT:} $G = \ldiaarg{V, E\subseteq V\times V}$
+            \item The property/query
+            \item[]
+            \begin{align*}
+            \varphi =  \exists x\exists y\exists z &(\neg(x=y)\wedge\neg(y=z)\wedge\neg(x=z)\\
+                                                    &\wedge E(x,y)\wedge E(y,z)\wedge E(x,z))
+            \end{align*}
+        \end{itemize}
+
+        \item 3-Colorable graph~~~~~\textcolor{red}{$\NP$-complete}
+        \begin{itemize}
+            \item \textbf{INPUT:} $G = \ldiaarg{V, E\subseteq V\times V}$
+            \item The property/query
+            \item[]
+            \begin{align*}
+            \varphi =  \exists R\subseteq V&\exists G\subseteq V\exists B\subseteq V (\forall x (R(x)\vee B(x)\vee G(s))\wedge\\
+                                            &\forall x (\neg (R(x)\wedge B(x))\wedge\neg(B(x)\wedge G(x))\wedge\neg(R(x)\wedge G(x)))\wedge\\
+                                            &\forall x\forall y(E(x,y)\rightarrow(\neg(R(x)\wedge R(y)\wedge\neg(G(x)\wedge G(y))\wedge\\
+                                                                                    &\neg(B(x)\wedge B(y)))))
+            \end{align*}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Second Order Logic}
+    \begin{itemize}
+        \item Extends FOL formulas with quantification over relations
+        \item[] ~~~~~~~~~~~~~~~~~~~~~~~$\exists X\varphi$
+        \item[] 
+        \item $X$ can be any relation of any arity over the domain
+        \item Given a finite structure $\cU$:
+        \begin{itemize}
+            \item $\cU\vDash\exists X\varphi$ iff $\cU\vDash\varphi[X\backslash R]$ for some $n$-ary $R$.
+            \item[] \begin{align*}
+                \varphi =  \exists R\subseteq V&\exists G\subseteq V\exists B\subseteq V (\forall x (R(x)\vee B(x)\vee G(s))\wedge\\
+                                                &\forall x (\neg (R(x)\wedge B(x))\wedge\neg(B(x)\wedge G(x))\wedge\neg(R(x)\wedge G(x)))\wedge\\
+                                                &\forall x\forall y(E(x,y)\rightarrow(\neg(R(x)\wedge R(y)\wedge\neg(G(x)\wedge G(y))\wedge\\
+                                                                                        &\neg(B(x)\wedge B(y)))))
+                \end{align*}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Logical Characterising Complexity Classes}
+    \begin{itemize}
+        \item Existential SOL ($\exists SOL$)
+        \begin{itemize}
+            \item $\exists X_1\exists X_2\ldots\exists X_n\varphi$, $\varphi\in FOL$
+            \item[]
+            \begin{block}{Fagin's Theorem}
+                $\NP\equiv \exists SOL$
+            \end{block}
+        \end{itemize}
+
+        \item Universal SOL ($\forall SOL$)
+        \begin{itemize}
+            \item $\forall X_1\forall X_2\ldots\forall X_n\varphi$, $\varphi\in FOL$
+            \item[]
+            \begin{block}{Fagin's Theorem}
+                $co-\NP\equiv \forall SOL$
+            \end{block}
+
+            \item $UNSAT\in co-\NP$
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
@@ -846,6 +942,8 @@
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{itemize}
+                \item $\Sigma^\PTime_1 = \exists SO$
+                \item $\Pi^\PTime_1 = \forall SO$
                 \item $\Sigma^\PTime_n = \exists X_1\ldots\exists X_n\Pi^\PTime_{n-1}$
                 \item $\Pi^\PTime_n = \exists X_1\ldots\exists X_n\Sigma^\PTime_{n-1}$
                 \item $\Sigma^\PTime_n\cup\Pi^\PTime_n\subseteq\Sigma^\PTime_{n+1}\cap\Pi^\PTime_{n+1}$
