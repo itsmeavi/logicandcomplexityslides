@@ -114,6 +114,8 @@
 \newcommand{\NPSPACE}{\mathsf{NPSPACE}}
 \newcommand{\PTime}{\mathsf{P}}
 \newcommand{\NP}{\mathsf{NP}}
+\newcommand{\EXPTime}{\mathsf{EXPTIME}}
+\newcommand{\NEXPTime}{\mathsf{NEXPTIME}}
 \newcommand{\PTIME}{\mathsf{PTIME}}
 \newcommand{\automaton}{\mathcal A}
 \newcommand{\modelM}{\mathcal M}
@@ -606,8 +608,254 @@
                     \end{itemize}
                 \item Decision functions:~$f(x\in\{0,1\}^\star)\in\{0,1\}$
                 \item \textbf{Other MODELS}: Church's Lambda Calculus
+                \item[]
+                
+                \begin{block}{Church-Turing Thesis}
+                    Any computable function can be computed by a Turing Machine/$\lambda$-Calculus.
+                \end{block}
 
             \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Complexity Theory}
+    \begin{itemize}
+        \item \textbf{Model:} Turing Machine (TM)
+        \item Bounding resource usage of computation wrt input size $n$
+            \begin{itemize}
+                \item \textbf{Time}: Steps a TM takes
+                \item \textbf{Space}: Tape space used
+                \item \textbf{Asymptotical}: $2\cC(n) + 3\equiv 55\cC(n) + 7$\\
+                ~~~~~~~~~~~~~~~~~~~~$2^{\cC(n)}\not\equiv 3^{\cC(n)}$
+            \end{itemize}
+        \item Difficulty between classes of problems (Decision functions)
+        \item Decision functions gives Language
+        \begin{itemize}
+            \item Language of $f$ $\cL_f\subseteq\Sigma^\star$
+            \item $f(x) = 1$ $\equiv$ $\cM_f(x)$ accepts $\equiv$ $x\in \cL_f$
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Polynomial Complexity}
+    Consider the following problems:
+    \begin{itemize}
+        \item Given a tuple of $n$ integers, \textbf{are they SORTED}?
+        \begin{itemize}
+            \item $\ldiaarg{23,45,79,127}$
+            \item Easily solvable
+            \item Compare adjascent pair (constant steps $c$)
+            \item Check for all adjascent pairs ($\leq n$)
+            \item Total steps $\sim cn$
+        \end{itemize}
+        \item Given a propositional formula $\varphi$, \textbf{is it SATISFIABLE}?
+        \begin{itemize}
+            \item $\varphi = (x_1\vee \neg x_2)\wedge (x_2\vee \neg x_3\vee \neg x_1)\wedge (x_3\vee x_1\vee x_2)$
+            \item Harder to solve
+            \item If \textbf{SATISFIABLE}, what is the certificate?
+            \item How big?
+            \item If certificate given, how much time to verify?
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Non-determinism}
+    \begin{itemize}
+        \item $\varphi = (x_1\vee \neg x_2)\wedge (x_2\vee \neg x_3\vee \neg x_1)\wedge (x_3\vee x_1\vee x_2)$
+        \item TM steps:
+        \item[] 
+        \begin{tikzpicture}
+            \node (x1) at (0,0){$x_1$};
+            \node (x2l) at (-2,-1){$x_2$};
+            \node (x2r) at (2,-1){$x_2$};
+            \node (x3rr) at (3,-2){$x_3$};
+            \node (x3rl) at (1,-2){$x_3$};
+            \node (x3lr) at (-1,-2){$x_3$};
+            \node (x3ll) at (-3,-2){$x_3$};
+            \node (000) at (-3.5,-3){\textcolor{red}{X}};
+            \node (001) at (-2.5,-3){\textcolor{green}{\checkmark}};
+            \node (010) at (-1.5,-3){\textcolor{red}{X}};
+            \node (011) at (-0.5,-3){\textcolor{red}{X}};
+            \node (100) at (0.5,-3){\textcolor{green}{\checkmark}};
+            \node (101) at (1.5,-3){\textcolor{red}{X}};
+            \node (110) at (2.5,-3){\textcolor{green}{\checkmark}};
+            \node (111) at (3.5,-3){\textcolor{green}{\checkmark}};
+
+
+            \draw[->] (x1) edge[dotted] (x2l);
+            \draw[->] (x1) edge (x2r);
+            \draw[->] (x2l) edge[dotted] (x3ll);
+            \draw[->] (x2l) edge (x3lr);
+            \draw[->] (x2r) edge[dotted] (x3rl);
+            \draw[->] (x2r) edge (x3rr);
+            
+            \draw[->] (x3ll) edge[dotted] (000);
+            \draw[->] (x3lr) edge[dotted] (010);
+            \draw[->] (x3rl) edge[dotted] (100);
+            \draw[->] (x3rr) edge[dotted] (110);
+
+            \draw[->] (x3ll) edge (001);
+            \draw[->] (x3lr) edge (011);
+            \draw[->] (x3rl) edge (101);
+            \draw[->] (x3rr) edge (111);
+        \end{tikzpicture}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Non-determinism}
+    \begin{itemize}
+        \item $\varphi = (x_1\vee \neg x_2)\wedge (x_2\vee \neg x_3\vee \neg x_1)\wedge (x_3\vee x_1\vee x_2)$
+        \item Lucky TM steps:
+        \item[] 
+        \begin{tikzpicture}
+            \node (x1) at (0,0){$x_1$};
+            \node (x2l) at (-2,-1){$x_2$};
+            \node (x2r) at (2,-1){$x_2$};
+            \node (x3rr) at (3,-2){$x_3$};
+            \node (x3rl) at (1,-2){$x_3$};
+            \node (x3lr) at (-1,-2){$x_3$};
+            \node (x3ll) at (-3,-2){$x_3$};
+            \node (000) at (-3.5,-3){\textcolor{red}{X}};
+            \node (001) at (-2.5,-3){\textcolor{green}{\checkmark}};
+            \node (010) at (-1.5,-3){\textcolor{red}{X}};
+            \node (011) at (-0.5,-3){\textcolor{red}{X}};
+            \node (100) at (0.5,-3){\textcolor{green}{\checkmark}};
+            \node (101) at (1.5,-3){\textcolor{red}{X}};
+            \node (110) at (2.5,-3){\textcolor{green}{\checkmark}};
+            \node (111) at (3.5,-3){\textcolor{green}{\checkmark}};
+
+
+            \draw[->] (x1) edge[dotted] (x2l);
+            \draw[->] (x1) edge (x2r);
+            \draw[->] (x2l) edge[dotted] (x3ll);
+            \draw[->] (x2l) edge (x3lr);
+            \draw[->] (x2r) edge[dotted] (x3rl);
+            \draw[->] (x2r) edge (x3rr);
+            
+            \draw[->] (x3ll) edge[dotted] (000);
+            \draw[->] (x3lr) edge[dotted] (010);
+            \draw[->] (x3rl) edge[dotted] (100);
+            \draw[->] (x3rr) edge[dotted] (110);
+
+            \draw[->] (x3ll) edge (001);
+            \draw[->] (x3lr) edge (011);
+            \draw[->] (x3rl) edge (101);
+            \draw[->] (x3rr) edge (111);
+            \pause
+            \draw[->] (x1) edge[dotted, red, very thick] (x2l);\pause
+            \draw[->] (x2l) edge[dotted, red, very thick] (x3ll);\pause
+            \draw[->] (x3ll) edge[red, very thick] (001);
+        \end{tikzpicture}
+        \item This Lucky TM is \emph{quick} iff small certificate, quick verify
+        \item This Lucky TM is called \textbf{Non-deterministic}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Complexity Classes}
+    \begin{itemize}
+        \item $\cL\in\PTime$:= Steps$(\cM_\cL(x))\leq O(|x|^c)$ 
+        \item $\cL\in\NP$:= Steps$(\cM_\cL(x))\leq O(|x|^c)$, $\cM_\cL$ is Non-deterministic
+        \item $\PTime\subset_?\NP$
+        \item $\cL\in\EXPTime$:= Steps$(\cM_\cL(x))\leq O(2^{|x|^c})$
+        \item $\cL\in\NEXPTime$:= Steps$(\cM_\cL(x))\leq O(2^{|x|^c})$, $\cM_\cL$ is ND
+        \item $\PTime\subseteq_?\NP\subseteq_?\EXPTime\subseteq_?\NEXPTime$ 
+        \item $\PTime\subset\EXPTime$ and $\NP\subset\NEXPTime$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hardness and Completeness}
+    \begin{itemize}
+        \item<1-> $\cL_1\geq_{hard}\cL_2$
+        \item[]<2-> $\cL_2$ can be computed using $\cM_{\cL_1}$ 
+        \item<3-> \emph{Reducing} $\cL_2$ to $\cL_1$.
+        \item[]
+        \begin{tikzpicture}
+            \node (x1) at (0,0){\Large$\circ$};
+            % \node (x2) at (0,-0.5){\Large$\circ$};
+            \node (x3) at (0,-1){\Large$\circ$};
+            \node (x4) at (0,-1.5){\Large$\circ$};
+            % \node (x5) at (0,-2){\Large$\circ$};
+            \node (x6) at (0,-2.5){\Large$\circ$};
+            \node (x7) at (0,-3){\Large$\circ$};
+            % \node (x8) at (0,-3.5){\Large$\circ$};
+            \node (xd) at (0,-4){\vdots};
+
+            \node (y1) at (5,0){\Large$\circ$};
+            \node (y2) at (5,-0.5){\Large$\circ$};
+            \node (y3) at (5,-1){\Large$\circ$};
+            \node (y4) at (5,-1.5){\Large$\circ$};
+            \node (y5) at (5,-2){\Large$\circ$};
+            \node (y6) at (5,-2.5){\Large$\circ$};
+            \node (y7) at (5,-3){\Large$\circ$};
+            \node (y8) at (5,-3.5){\Large$\circ$};
+            \node (yd) at (5,-4){\vdots};
+
+            \node (L2) at (0,-5){$\Sigma^\star$};
+            \node (L1) at (5,-5){$\Sigma^\star$};
+            \node (f) at (2.5,-5){$f$};
+
+            \draw[->] (x1) edge (y1);
+            \draw[->] (x3) edge (y2);
+            \draw[->] (x4) edge (y4);
+            \draw[->] (x6) edge (y7);
+            \draw[->] (x7) edge (y8);\pause
+
+            \node (st) at (8,-2){$x\in\cL_2$ iff $f(x)\in\cL_1$};\pause
+            \node (red) at (8,-4){$\cL_2$ is reduced to $\cL_1$};
+        \end{tikzpicture}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Completeness}
+    \begin{itemize}
+        \item $\cL_1\geq_{\PTime}\cL_2$: Reduction $f$ is poly computable
+        \item $\cL\in\cC-complete$
+        \begin{itemize}
+            \item $\cL\in\cC$
+            \item $\cL\geq_\PTime\cL'$ for any $\cL'\in\cC$
+        \end{itemize}
+        \item[] 
+        \begin{block}{Cook-Levin}
+        Propositional SAT is $\NP-complete$    
+        \end{block}
+
+        \item A $\cC-complete$ problem is one of the hardest in $\cC$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Model-Checking Hierarchy}
+    \begin{itemize}
+        \item What is model-checking?
+        \begin{itemize}
+            \item Given model and a formula, is formula true in model?
+            \item Proposition Logic: $\ldiaarg{10010\ldots01}\vDash\varphi$?
+            \item FOL: $\ldiaarg{\cD,\cI,\Pi}\vDash\varphi$?
+        \end{itemize}
+        \item Model-checking Prop $\varphi\in\PTime~~~(\Sigma^\PTime_0)$
+        \item Add existential quantifier
+        \item[] Model-check $\exists x_1\exists x_2\ldots\exists x_n\varphi\in\NP~~~(\Sigma^\PTime_1)$
+        \item Add universal quantifier
+        \item[] Model-check $\forall x_1\forall x_2\ldots\forall x_n\varphi\in co-\NP~~~(\Pi^\PTime_1)$
+        \item Note: $\PTime\subseteq \NP\cap co-\NP$
+        \item[] Infact, more generally...
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Polynomial Hierarchy}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item $\Sigma^\PTime_n = \exists X_1\ldots\exists X_n\Pi^\PTime_{n-1}$
+                \item $\Pi^\PTime_n = \exists X_1\ldots\exists X_n\Sigma^\PTime_{n-1}$
+                \item $\Sigma^\PTime_n\cup\Pi^\PTime_n\subseteq\Sigma^\PTime_{n+1}\cap\Pi^\PTime_{n+1}$
+                \item What tops it? 
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{tikzpicture}
+                \node (g) at (0,0){\includegraphics[width=5cm]{images/Polynomial_time_hierarchy.svg.png}};    
+            \end{tikzpicture}
         \end{column}
     \end{columns}
 \end{frame}

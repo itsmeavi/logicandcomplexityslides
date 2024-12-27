@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.24)  26 DEC 2024 16:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.24)  27 DEC 2024 18:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -826,24 +826,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 185.
+LaTeX Font Info:    ... okay on input line 185.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -898,60 +898,60 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\Avijeet\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 183.
+Package hyperref Info: Link coloring OFF on input line 185.
  (main.out) (main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 183.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 185.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 183.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 185.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/put/m/n on input line 183.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 183.
+(Font)                  OT1/cmss/m/n --> OT1/put/m/n on input line 185.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 183.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 183.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 183.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 185.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 183.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 183.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 183.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 185.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 183.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 183.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 183.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 185.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 183.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 183.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 185.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 183.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 185.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 183.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/put/b/n on input line 183.
+(Font)                  OT1/cmss/b/n --> OT1/put/b/n on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 183.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 183.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 183.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 185.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 183.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 183.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 185.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 185.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 183.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 185.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 183.
+(Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 185.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 183.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 185.
  (C:\Users\Avijeet\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (C:\Users\Avijeet\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-bibliography-dictionary-English.dict
@@ -971,16 +971,16 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (main.nav)
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 187.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 187.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 189.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 189.
  (C:\Users\Avijeet\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 187.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 189.
  (C:\Users\Avijeet\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 187.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 189.
  (C:\Users\Avijeet\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
@@ -999,15 +999,15 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 <images/hilbert.jpeg, id=122, 190.7125pt x 265.99374pt>
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 236.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 238.
 (pdftex.def)             Requested size: 56.9055pt x 79.3685pt.
 <images/question.jpg, id=123, 121.4136pt x 86.724pt>
 File: images/question.jpg Graphic file (type jpg)
 <use images/question.jpg>
-Package pdftex.def Info: images/question.jpg  used on input line 236.
+Package pdftex.def Info: images/question.jpg  used on input line 238.
 (pdftex.def)             Requested size: 56.9055pt x 40.6478pt.
 
-Overfull \hbox (18.42058pt too wide) in paragraph at lines 236--236
+Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
 [][]  
  []
 
@@ -1018,14 +1018,14 @@ Overfull \hbox (18.42058pt too wide) in paragraph at lines 236--236
  <./images/hilbert.jpeg> <./images/question.jpg>]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 236.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 238.
 (pdftex.def)             Requested size: 56.9055pt x 79.3685pt.
 File: images/question.jpg Graphic file (type jpg)
 <use images/question.jpg>
-Package pdftex.def Info: images/question.jpg  used on input line 236.
+Package pdftex.def Info: images/question.jpg  used on input line 238.
 (pdftex.def)             Requested size: 56.9055pt x 40.6478pt.
 
-Overfull \hbox (18.42058pt too wide) in paragraph at lines 236--236
+Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
 [][]  
  []
 
@@ -1036,14 +1036,14 @@ Overfull \hbox (18.42058pt too wide) in paragraph at lines 236--236
 ]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 236.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 238.
 (pdftex.def)             Requested size: 56.9055pt x 79.3685pt.
 File: images/question.jpg Graphic file (type jpg)
 <use images/question.jpg>
-Package pdftex.def Info: images/question.jpg  used on input line 236.
+Package pdftex.def Info: images/question.jpg  used on input line 238.
 (pdftex.def)             Requested size: 56.9055pt x 40.6478pt.
 
-Overfull \hbox (18.42058pt too wide) in paragraph at lines 236--236
+Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
 [][]  
  []
 
@@ -1054,14 +1054,14 @@ Overfull \hbox (18.42058pt too wide) in paragraph at lines 236--236
 ]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 236.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 238.
 (pdftex.def)             Requested size: 56.9055pt x 79.3685pt.
 File: images/question.jpg Graphic file (type jpg)
 <use images/question.jpg>
-Package pdftex.def Info: images/question.jpg  used on input line 236.
+Package pdftex.def Info: images/question.jpg  used on input line 238.
 (pdftex.def)             Requested size: 56.9055pt x 40.6478pt.
 
-Overfull \hbox (18.42058pt too wide) in paragraph at lines 236--236
+Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
 [][]  
  []
 
@@ -1072,24 +1072,24 @@ Overfull \hbox (18.42058pt too wide) in paragraph at lines 236--236
 ]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 263.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 39.68222pt.
 <images/godel.jpg, id=240, 271.0125pt x 271.0125pt>
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 263.
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 263.
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 <images/wonder.jpg, id=241, 1204.5pt x 632.3625pt>
 File: images/wonder.jpg Graphic file (type jpg)
 <use images/wonder.jpg>
-Package pdftex.def Info: images/wonder.jpg  used on input line 263.
+Package pdftex.def Info: images/wonder.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 14.93674pt.
 
-Overfull \hbox (3.16014pt too wide) in paragraph at lines 263--263
+Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
 [][]  
  []
 
@@ -1100,22 +1100,22 @@ Overfull \hbox (3.16014pt too wide) in paragraph at lines 263--263
  <./images/godel.jpg> <./images/wonder.jpg>]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 263.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 39.68222pt.
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 263.
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 263.
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 File: images/wonder.jpg Graphic file (type jpg)
 <use images/wonder.jpg>
-Package pdftex.def Info: images/wonder.jpg  used on input line 263.
+Package pdftex.def Info: images/wonder.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 14.93674pt.
 
-Overfull \hbox (3.16014pt too wide) in paragraph at lines 263--263
+Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
 [][]  
  []
 
@@ -1126,22 +1126,22 @@ Overfull \hbox (3.16014pt too wide) in paragraph at lines 263--263
 ]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 263.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 39.68222pt.
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 263.
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 263.
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 File: images/wonder.jpg Graphic file (type jpg)
 <use images/wonder.jpg>
-Package pdftex.def Info: images/wonder.jpg  used on input line 263.
+Package pdftex.def Info: images/wonder.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 14.93674pt.
 
-Overfull \hbox (3.16014pt too wide) in paragraph at lines 263--263
+Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
 [][]  
  []
 
@@ -1152,22 +1152,22 @@ Overfull \hbox (3.16014pt too wide) in paragraph at lines 263--263
 ]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 263.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 39.68222pt.
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 263.
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 263.
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 File: images/wonder.jpg Graphic file (type jpg)
 <use images/wonder.jpg>
-Package pdftex.def Info: images/wonder.jpg  used on input line 263.
+Package pdftex.def Info: images/wonder.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 14.93674pt.
 
-Overfull \hbox (3.16014pt too wide) in paragraph at lines 263--263
+Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
 [][]  
  []
 
@@ -1178,22 +1178,22 @@ Overfull \hbox (3.16014pt too wide) in paragraph at lines 263--263
 ]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 263.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 39.68222pt.
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 263.
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 263.
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
 File: images/wonder.jpg Graphic file (type jpg)
 <use images/wonder.jpg>
-Package pdftex.def Info: images/wonder.jpg  used on input line 263.
+Package pdftex.def Info: images/wonder.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 14.93674pt.
 
-Overfull \hbox (3.16014pt too wide) in paragraph at lines 263--263
+Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
 [][]  
  []
 
@@ -1203,7 +1203,7 @@ Overfull \hbox (3.16014pt too wide) in paragraph at lines 263--263
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 289.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 291.
 
 
 [13
@@ -1218,7 +1218,7 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 403.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 405.
 
 
 [16
@@ -1256,16 +1256,78 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
 [24
 
 ]
-<images/turing.jpg, id=701, 536.0025pt x 714.67pt>
+<images/turing.jpg, id=702, 536.0025pt x 714.67pt>
 File: images/turing.jpg Graphic file (type jpg)
 <use images/turing.jpg>
-Package pdftex.def Info: images/turing.jpg  used on input line 613.
+Package pdftex.def Info: images/turing.jpg  used on input line 620.
 (pdftex.def)             Requested size: 85.35826pt x 113.80428pt.
 
 
 [25
 
  <./images/turing.jpg>]
+
+[26
+
+]
+
+[27
+
+]
+
+[28
+
+]
+
+[29
+
+]
+
+[30
+
+]
+
+[31
+
+]
+
+[32
+
+]
+
+[33
+
+]
+
+[34
+
+]
+
+[35
+
+]
+
+[36
+
+]
+
+[37
+
+]
+
+[38
+
+]
+<images/Polynomial_time_hierarchy.svg.png, id=1107, 501.875pt x 705.63625pt>
+File: images/Polynomial_time_hierarchy.svg.png Graphic file (type png)
+<use images/Polynomial_time_hierarchy.svg.png>
+Package pdftex.def Info: images/Polynomial_time_hierarchy.svg.png  used on input line 861.
+(pdftex.def)             Requested size: 142.26378pt x 200.02094pt.
+
+
+[39
+
+ <./images/Polynomial_time_hierarchy.svg.png>]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1284,17 +1346,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 3B8596940A861BAFB9440947D3AFEFE8;154.
  ) 
 Here is how much of TeX's memory you used:
- 39594 strings out of 473649
- 927619 string characters out of 5716949
- 1400808 words of memory out of 5000000
- 61929 multiletter control sequences out of 15000+600000
- 572170 words of font info for 86 fonts, out of 8000000 for 9000
+ 39941 strings out of 473649
+ 933109 string characters out of 5716949
+ 1400833 words of memory out of 5000000
+ 62248 multiletter control sequences out of 15000+600000
+ 572477 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,821b,1395s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (25 pages, 631372 bytes).
+<C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Avijeet/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (39 pages, 778324 bytes).
 PDF statistics:
- 802 PDF objects out of 1000 (max. 8388607)
- 52 named destinations out of 1000 (max. 500000)
- 130 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1229 PDF objects out of 1440 (max. 8388607)
+ 80 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 
