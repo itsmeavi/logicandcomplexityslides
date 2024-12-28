@@ -1,2 +1,1 @@
 \babel@toc {portuguese}{}\relax 
-\beamer@sectionintoc {1}{Theory of Computation}{3}{0}{1}

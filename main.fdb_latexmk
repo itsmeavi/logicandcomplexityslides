@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1735330189.31077 "e:/Study/ISI/Gauhati Lecture/logicandcomplexityslides/main.tex" "main.pdf" "main" 1735330201.23009 0
+["pdflatex"] 1735379544.15255 "e:/Study/ISI/Gauhati Lecture/logicandcomplexityslides/main.tex" "main.pdf" "main" 1735379571.01412 0
   "C:/Users/avigh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1735108906 83788 3e06ff692e1323f668f12ea28ca579e9 ""
   "C:/Users/avigh/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1733558351 11974656 bd99e0c3be1f9d5178015346ec51b40d ""
   "E:/Programs/MikTex/fonts/tfm/jknappen/ec/ectt1000.tfm" 993062340 1348 d70ddf2d5d512b838e50a335e385e919 ""
@@ -289,19 +289,19 @@
   "E:/Programs/MikTex/tex/latex/translator/translator.sty" 1622471510 8765 56d370785f0143111ff9898b5adfe08e ""
   "E:/Programs/MikTex/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "E:/Programs/MikTex/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "e:/Study/ISI/Gauhati Lecture/logicandcomplexityslides/main.tex" 1735330187 40476 ef0bd4f6ba01dee8b21b9a2fe4336a8f ""
+  "e:/Study/ISI/Gauhati Lecture/logicandcomplexityslides/main.tex" 1735379520 42879 505b874c94178e40a8a925726d78adb0 ""
   "images/Polynomial_time_hierarchy.svg.png" 1735316323 13936 2ea0dbeb00aaf919c4c2c6bfd0731825 ""
+  "images/descriptiveWorld2023.jpg" 1735374241 622147 fd2806248c3b9f8c4aced530bcb21db3 ""
   "images/godel.jpg" 1735316323 11534 1754b255fd3d48a337ef6643e8b7502d ""
   "images/hilbert.jpeg" 1735316323 6450 38f1a1bbc107ef6aca2a464610d5d265 ""
   "images/question.jpg" 1735316323 9366 fc54b10636b5728c8a422cf4458f175d ""
   "images/turing.jpg" 1735316323 223995 1333db692bc2fa9beec2beabe5080bab ""
   "images/wonder.jpg" 1735316323 57678 316d6e4f167309c11ac7817362a1c003 ""
   "macrostiling.tex" 1735316323 1675 914cfaef30d4f99fb2ac129bb1cd359d ""
-  "main.aux" 1735330200 4670 e4e971898eaeb69e4159d73a47247a78 "pdflatex"
-  "main.nav" 1735330200 3066 dd14895b86718c4082f873bc02a7064b "pdflatex"
-  "main.out" 1735330200 154 3b8596940a861bafb9440947d3afefe8 "pdflatex"
-  "main.tex" 1735330187 40476 ef0bd4f6ba01dee8b21b9a2fe4336a8f ""
-  "main.toc" 1735330200 90 c59f6448c4475939c6d851175f43cfa7 "pdflatex"
+  "main.aux" 1735379569 4635 0726f4893b4fe01c30f811d8b5d3bbe5 "pdflatex"
+  "main.nav" 1735379569 3088 d4e5388e0f5e6c14d34b0564dc32a26c "pdflatex"
+  "main.out" 1735379548 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1735379520 42879 505b874c94178e40a8a925726d78adb0 ""
   (generated)
   "main.aux"
   "main.log"

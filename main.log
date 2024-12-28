@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.7)  28 DEC 2024 01:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.7)  28 DEC 2024 15:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -987,21 +987,49 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 
 [1
 
-{C:/Users/avigh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (main.toc)
-
-[2
-
-] (main.toc)
-
-[3
-
-]
-<images/hilbert.jpeg, id=122, 190.7125pt x 265.99374pt>
+{C:/Users/avigh/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+<images/hilbert.jpeg, id=59, 190.7125pt x 265.99374pt>
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
 Package pdftex.def Info: images/hilbert.jpeg  used on input line 238.
 (pdftex.def)             Requested size: 56.9055pt x 79.3685pt.
-<images/question.jpg, id=123, 121.4136pt x 86.724pt>
+<images/question.jpg, id=60, 121.4136pt x 86.724pt>
+File: images/question.jpg Graphic file (type jpg)
+<use images/question.jpg>
+Package pdftex.def Info: images/question.jpg  used on input line 238.
+(pdftex.def)             Requested size: 56.9055pt x 40.6478pt.
+
+Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
+[][]  
+ []
+
+
+
+[2
+
+ <./images/hilbert.jpeg> <./images/question.jpg>]
+File: images/hilbert.jpeg Graphic file (type jpg)
+<use images/hilbert.jpeg>
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 238.
+(pdftex.def)             Requested size: 56.9055pt x 79.3685pt.
+File: images/question.jpg Graphic file (type jpg)
+<use images/question.jpg>
+Package pdftex.def Info: images/question.jpg  used on input line 238.
+(pdftex.def)             Requested size: 56.9055pt x 40.6478pt.
+
+Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
+[][]  
+ []
+
+
+
+[3
+
+]
+File: images/hilbert.jpeg Graphic file (type jpg)
+<use images/hilbert.jpeg>
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 238.
+(pdftex.def)             Requested size: 56.9055pt x 79.3685pt.
 File: images/question.jpg Graphic file (type jpg)
 <use images/question.jpg>
 Package pdftex.def Info: images/question.jpg  used on input line 238.
@@ -1015,7 +1043,7 @@ Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
 
 [4
 
- <./images/hilbert.jpeg> <./images/question.jpg>]
+]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
 Package pdftex.def Info: images/hilbert.jpeg  used on input line 238.
@@ -1036,14 +1064,24 @@ Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
 ]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 238.
-(pdftex.def)             Requested size: 56.9055pt x 79.3685pt.
-File: images/question.jpg Graphic file (type jpg)
-<use images/question.jpg>
-Package pdftex.def Info: images/question.jpg  used on input line 238.
-(pdftex.def)             Requested size: 56.9055pt x 40.6478pt.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
+(pdftex.def)             Requested size: 28.45274pt x 39.68222pt.
+<images/godel.jpg, id=177, 271.0125pt x 271.0125pt>
+File: images/godel.jpg Graphic file (type jpg)
+<use images/godel.jpg>
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
+(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
+File: images/godel.jpg Graphic file (type jpg)
+<use images/godel.jpg>
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
+(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
+<images/wonder.jpg, id=178, 1204.5pt x 632.3625pt>
+File: images/wonder.jpg Graphic file (type jpg)
+<use images/wonder.jpg>
+Package pdftex.def Info: images/wonder.jpg  used on input line 265.
+(pdftex.def)             Requested size: 28.45274pt x 14.93674pt.
 
-Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
+Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
 [][]  
  []
 
@@ -1051,17 +1089,25 @@ Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
 
 [6
 
-]
+ <./images/godel.jpg> <./images/wonder.jpg>]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 238.
-(pdftex.def)             Requested size: 56.9055pt x 79.3685pt.
-File: images/question.jpg Graphic file (type jpg)
-<use images/question.jpg>
-Package pdftex.def Info: images/question.jpg  used on input line 238.
-(pdftex.def)             Requested size: 56.9055pt x 40.6478pt.
+Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
+(pdftex.def)             Requested size: 28.45274pt x 39.68222pt.
+File: images/godel.jpg Graphic file (type jpg)
+<use images/godel.jpg>
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
+(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
+File: images/godel.jpg Graphic file (type jpg)
+<use images/godel.jpg>
+Package pdftex.def Info: images/godel.jpg  used on input line 265.
+(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
+File: images/wonder.jpg Graphic file (type jpg)
+<use images/wonder.jpg>
+Package pdftex.def Info: images/wonder.jpg  used on input line 265.
+(pdftex.def)             Requested size: 28.45274pt x 14.93674pt.
 
-Overfull \hbox (18.42058pt too wide) in paragraph at lines 238--238
+Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
 [][]  
  []
 
@@ -1074,7 +1120,6 @@ File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
 Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 39.68222pt.
-<images/godel.jpg, id=240, 271.0125pt x 271.0125pt>
 File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
 Package pdftex.def Info: images/godel.jpg  used on input line 265.
@@ -1083,7 +1128,6 @@ File: images/godel.jpg Graphic file (type jpg)
 <use images/godel.jpg>
 Package pdftex.def Info: images/godel.jpg  used on input line 265.
 (pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
-<images/wonder.jpg, id=241, 1204.5pt x 632.3625pt>
 File: images/wonder.jpg Graphic file (type jpg)
 <use images/wonder.jpg>
 Package pdftex.def Info: images/wonder.jpg  used on input line 265.
@@ -1097,7 +1141,7 @@ Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
 
 [8
 
- <./images/godel.jpg> <./images/wonder.jpg>]
+]
 File: images/hilbert.jpeg Graphic file (type jpg)
 <use images/hilbert.jpeg>
 Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
@@ -1150,61 +1194,17 @@ Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
 [10
 
 ]
-File: images/hilbert.jpeg Graphic file (type jpg)
-<use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
-(pdftex.def)             Requested size: 28.45274pt x 39.68222pt.
-File: images/godel.jpg Graphic file (type jpg)
-<use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 265.
-(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
-File: images/godel.jpg Graphic file (type jpg)
-<use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 265.
-(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
-File: images/wonder.jpg Graphic file (type jpg)
-<use images/wonder.jpg>
-Package pdftex.def Info: images/wonder.jpg  used on input line 265.
-(pdftex.def)             Requested size: 28.45274pt x 14.93674pt.
-
-Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
-[][]  
- []
-
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 291.
 
 
 [11
 
 ]
-File: images/hilbert.jpeg Graphic file (type jpg)
-<use images/hilbert.jpeg>
-Package pdftex.def Info: images/hilbert.jpeg  used on input line 265.
-(pdftex.def)             Requested size: 28.45274pt x 39.68222pt.
-File: images/godel.jpg Graphic file (type jpg)
-<use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 265.
-(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
-File: images/godel.jpg Graphic file (type jpg)
-<use images/godel.jpg>
-Package pdftex.def Info: images/godel.jpg  used on input line 265.
-(pdftex.def)             Requested size: 28.45274pt x 28.45094pt.
-File: images/wonder.jpg Graphic file (type jpg)
-<use images/wonder.jpg>
-Package pdftex.def Info: images/wonder.jpg  used on input line 265.
-(pdftex.def)             Requested size: 28.45274pt x 14.93674pt.
-
-Overfull \hbox (3.16014pt too wide) in paragraph at lines 265--265
-[][]  
- []
-
-
 
 [12
 
 ]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 291.
-
 
 [13
 
@@ -1217,9 +1217,6 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
 [15
 
 ]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 405.
-
 
 [16
 
@@ -1256,16 +1253,10 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
 [24
 
 ]
-<images/turing.jpg, id=702, 536.0025pt x 714.67pt>
-File: images/turing.jpg Graphic file (type jpg)
-<use images/turing.jpg>
-Package pdftex.def Info: images/turing.jpg  used on input line 620.
-(pdftex.def)             Requested size: 85.35826pt x 113.80428pt.
-
 
 [25
 
- <./images/turing.jpg>]
+]
 
 [26
 
@@ -1306,6 +1297,9 @@ Package pdftex.def Info: images/turing.jpg  used on input line 620.
 [35
 
 ]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 405.
+
 
 [36
 
@@ -1318,29 +1312,14 @@ Package pdftex.def Info: images/turing.jpg  used on input line 620.
 [38
 
 ]
-Overfull \hbox (5.38647pt too wide) detected at line 868
-[]
- []
-
-
 
 [39
 
 ]
-Overfull \hbox (5.38647pt too wide) detected at line 896
-[]
- []
-
-
 
 [40
 
 ]
-Overfull \hbox (5.38647pt too wide) detected at line 915
-[]
- []
-
-
 
 [41
 
@@ -1349,16 +1328,278 @@ Overfull \hbox (5.38647pt too wide) detected at line 915
 [42
 
 ]
-<images/Polynomial_time_hierarchy.svg.png, id=1239, 501.875pt x 705.63625pt>
+
+[43
+
+]
+
+[44
+
+]
+<images/turing.jpg, id=1216, 536.0025pt x 714.67pt>
+File: images/turing.jpg Graphic file (type jpg)
+<use images/turing.jpg>
+Package pdftex.def Info: images/turing.jpg  used on input line 620.
+(pdftex.def)             Requested size: 85.35826pt x 113.80428pt.
+
+
+[45
+
+ <./images/turing.jpg>]
+
+[46
+
+]
+
+[47
+
+]
+
+[48
+
+]
+
+[49
+
+]
+
+[50
+
+]
+
+[51
+
+]
+
+[52
+
+]
+
+[53
+
+]
+
+[54
+
+]
+
+[55
+
+]
+
+[56
+
+]
+
+[57
+
+]
+
+[58
+
+]
+
+[59
+
+]
+
+[60
+
+]
+
+[61
+
+]
+
+[62
+
+]
+
+[63
+
+]
+
+[64
+
+]
+
+[65
+
+]
+
+[66
+
+]
+
+[67
+
+]
+
+[68
+
+]
+
+[69
+
+]
+
+[70
+
+]
+
+[71
+
+]
+
+[72
+
+]
+
+[73
+
+]
+
+[74
+
+]
+
+[75
+
+]
+
+[76
+
+]
+
+[77
+
+]
+
+[78
+
+]
+Overfull \hbox (5.38647pt too wide) detected at line 868
+[]
+ []
+
+
+
+[79
+
+]
+Overfull \hbox (5.38647pt too wide) detected at line 868
+[]
+ []
+
+
+
+[80
+
+]
+Overfull \hbox (5.38647pt too wide) detected at line 896
+[]
+ []
+
+
+
+[81
+
+]
+Overfull \hbox (5.38647pt too wide) detected at line 915
+[]
+ []
+
+
+
+[82
+
+]
+Overfull \hbox (5.38647pt too wide) detected at line 915
+[]
+ []
+
+
+
+[83
+
+]
+Overfull \hbox (5.38647pt too wide) detected at line 915
+[]
+ []
+
+
+
+[84
+
+]
+Overfull \hbox (5.38647pt too wide) detected at line 915
+[]
+ []
+
+
+
+[85
+
+]
+Overfull \hbox (5.38647pt too wide) detected at line 915
+[]
+ []
+
+
+
+[86
+
+]
+Overfull \hbox (5.38647pt too wide) detected at line 915
+[]
+ []
+
+
+
+[87
+
+]
+
+[88
+
+]
+<images/Polynomial_time_hierarchy.svg.png, id=2434, 501.875pt x 705.63625pt>
 File: images/Polynomial_time_hierarchy.svg.png Graphic file (type png)
 <use images/Polynomial_time_hierarchy.svg.png>
 Package pdftex.def Info: images/Polynomial_time_hierarchy.svg.png  used on input line 959.
 (pdftex.def)             Requested size: 142.26378pt x 200.02094pt.
 
 
-[43
+[89
 
  <./images/Polynomial_time_hierarchy.svg.png>]
+
+[90
+
+]
+
+[91
+
+]
+<images/descriptiveWorld2023.jpg, id=2543, 1037.8775pt x 765.86125pt>
+File: images/descriptiveWorld2023.jpg Graphic file (type jpg)
+<use images/descriptiveWorld2023.jpg>
+Package pdftex.def Info: images/descriptiveWorld2023.jpg  used on input line 1008.
+(pdftex.def)             Requested size: 311.36566pt x 229.76015pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[92
+
+]
+
+[93 <./images/descriptiveWorld2023.jpg>]
+
+[94
+
+]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1374,20 +1615,20 @@ LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 3B8596940A861BAFB9440947D3AFEFE8;154.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 39973 strings out of 473681
- 918711 string characters out of 5731493
- 1400815 words of memory out of 5000000
- 62248 multiletter control sequences out of 15000+600000
- 572477 words of font info for 87 fonts, out of 8000000 for 9000
+ 40062 strings out of 473681
+ 919505 string characters out of 5731493
+ 1402816 words of memory out of 5000000
+ 62240 multiletter control sequences out of 15000+600000
+ 574127 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,15n,123p,812b,1395s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmss10.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmss12.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmss8.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmssi10.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmssi12.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmssi8.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmsy6.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/symbols/msam10.pfb><E:/Programs/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (43 pages, 813091 bytes).
+Output written on main.pdf (94 pages, 1781226 bytes).
 PDF statistics:
- 1363 PDF objects out of 1440 (max. 8388607)
- 88 named destinations out of 1000 (max. 500000)
- 285 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2736 PDF objects out of 2984 (max. 8388607)
+ 189 named destinations out of 1000 (max. 500000)
+ 348 words of extra memory for PDF output out of 10000 (max. 10000000)
 

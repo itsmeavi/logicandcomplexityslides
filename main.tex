@@ -187,11 +187,11 @@
 \begin{frame}
  \maketitle
 \end{frame}
-\begin{frame}{Table of Contents}
-    \tableofcontents
-\end{frame}
+% \begin{frame}{Table of Contents}
+%     \tableofcontents
+% \end{frame}
 
-\section{Theory of Computation}
+% \section{Theory of Computation}
 \begin{frame}{A System of Proofs}
     \begin{columns}
         \begin{column}{0.3\textwidth}
@@ -266,36 +266,36 @@
 
 \begin{frame}{Computability}
     \begin{itemize}
-        \item \textbf{NEED:} Given $S$ and $\cA$, "procedure" to decide whether there is a proof
+        \item<1-> \textbf{NEED:} Given $S$ and $\cA$, "procedure" to decide whether there is a proof
         \begin{itemize}
-            \item For any axiom system $(\cA,\cI)$ and any statement $S$
+            \item<2-> For any axiom system $(\cA,\cI)$ and any statement $S$
             $ f(S,\cA,\cI) = 
             \begin{cases} 
                 1 & \cA\vdash_\cI S \\
                 0 & \cA\nvdash_\cI S  
             \end{cases}
             $
-            \item Is $f$ \emph{computable}?
+            \item<3-> Is $f$ \emph{computable}?
         \end{itemize}
-        \item What is \emph{computability}?
-        \item \textbf{Example 1}: $\forall x\in\NN, f(x) = x^2 + 2x + 1$
+        \item<4-> What is \emph{computability}?
+        \item<5-> \textbf{Example 1}: $\forall x\in\NN, f(x) = x^2 + 2x + 1$
         \begin{itemize}
-            \item $f(13) = ?$
+            \item<6-> $f(13) = ?$
         \end{itemize}
-        \item \textbf{Example 2}: $\forall x\in\NN,\forall y\in\NN f(x,y) = x^y + xy + 1$
+        \item<7-> \textbf{Example 2}: $\forall x\in\NN,\forall y\in\NN f(x,y) = x^y + xy + 1$
         \begin{itemize}
-            \item $f(13,12) = ?$
-            \item \bf HARDER
+            \item<8-> $f(13,12) = ?$
+            \item<9-> \bf HARDER
         \end{itemize}
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Computability}
     \begin{itemize}
-        \item Proper Tiling:
+        \item<1-> Proper Tiling:
         \begin{itemize}
-            \item Given a set of tiles $\cT$
-            \item[]
+            \item<2-> Given a set of tiles $\cT$
+            \item[]<2->
             \begin{tikzpicture}[scale=0.5]
             \node[text width=2cm] at (-2, 1.5) 
             {					
@@ -321,8 +321,8 @@
                 
             };
             \end{tikzpicture}
-            \item A Proper tiling on a finite grid:
-            \item[] \begin{tikzpicture}[scale=0.5, baseline=-15mm]
+            \item<3-> A Proper tiling on a finite grid:
+            \item[]<3-> \begin{tikzpicture}[scale=0.5, baseline=-15mm]
                 % posx posy left up right down
                       \tile 0 1 \tilewhite \tilewhite \tilegreen\tilewhite
                       \tile 1 1 \tilegreen\tilewhite\tilegreen\tilewhite
@@ -342,7 +342,7 @@
                       \tile 3 {-2} \tilewhite\tilered\tilewhite\tilered
                       \end{tikzpicture}
         \end{itemize} 
-        \item $ f(\cT) = 
+        \item<4-> $ f(\cT) = 
             \begin{cases} 
                 1 & \mbox{Proper tiling covering infinite grid} \\
                 0 & \mbox{No such proper tiling}  
@@ -353,22 +353,22 @@
 
 \begin{frame}{Model of Computability}
     \begin{itemize}
-        \item $f(x) = x^2 + 2x +1$. 
-        \item $f(13) = 13^2 + (2x13) + 1$
-        \item Local rules:
+        \item<1-> $f(x) = x^2 + 2x +1$. 
+        \item<2-> $f(13) = 13^2 + (2x13) + 1$
+        \item<3-> Local rules:
                 \begin{itemize}
-                    \item Rule of multiplication
-                    \item Rule of addition
+                    \item<4-> Rule of multiplication
+                    \item<5-> Rule of addition
                 \end{itemize} 
-        \item Local states:
+        \item<6-> Local states:
                 \begin{enumerate}
-                    \item Initial $13^2 + (2x13) + 1$
-                    \item All multiplication done $169 + 26 + 1$
-                    \item All addition done $196$
-                    \item Final value $196$
+                    \item<7-> Initial $13^2 + (2x13) + 1$
+                    \item<8-> All multiplication done $169 + 26 + 1$
+                    \item<9-> All addition done $196$
+                    \item<10-> Final value $196$
                 \end{enumerate}
-        \item \textbf{NEED: MODEL} Anything that model can compute is computable
-        \item Turing Machine, Lambda Calculus 
+        \item<11-> \textbf{NEED: MODEL} Anything that model can compute is computable
+        \item<12-> Turing Machine, Lambda Calculus 
     \end{itemize}
 \end{frame}
 
@@ -621,19 +621,19 @@
 
 \begin{frame}{Complexity Theory}
     \begin{itemize}
-        \item \textbf{Model:} Turing Machine (TM)
-        \item Bounding resource usage of computation wrt input size $n$
+        \item<1-> \textbf{Model:} Turing Machine (TM)
+        \item<2-> Bounding resource usage of computation wrt input size $n$
             \begin{itemize}
-                \item \textbf{Time}: Steps a TM takes
-                \item \textbf{Space}: Tape space used
-                \item \textbf{Asymptotical}: $2\cC(n) + 3\equiv 55\cC(n) + 7$\\
+                \item<3-> \textbf{Time}: Steps a TM takes
+                \item<4-> \textbf{Space}: Tape space used
+                \item<5-> \textbf{Asymptotical}: $2\cC(n) + 3\equiv 55\cC(n) + 7$\\
                 ~~~~~~~~~~~~~~~~~~~~$2^{\cC(n)}\not\equiv 3^{\cC(n)}$
             \end{itemize}
-        \item Difficulty between classes of problems (Decision functions)
-        \item Decision functions gives Language
+        \item<6-> Difficulty between classes of problems (Decision functions)
+        \item<7-> Decision functions gives Language
         \begin{itemize}
-            \item Language of $f$ $\cL_f\subseteq\Sigma^\star$
-            \item $f(x) = 1$ $\equiv$ $\cM_f(x)$ accepts $\equiv$ $x\in \cL_f$
+            \item<8-> Language of $f$ $\cL_f\subseteq\Sigma^\star$
+            \item<9-> $f(x) = 1$ $\equiv$ $\cM_f(x)$ accepts $\equiv$ $x\in \cL_f$
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -641,21 +641,21 @@
 \begin{frame}{Polynomial Complexity}
     Consider the following problems:
     \begin{itemize}
-        \item Given a tuple of $n$ integers, \textbf{are they SORTED}?
+        \item<1-> Given a tuple of $n$ integers, \textbf{are they SORTED}?
         \begin{itemize}
-            \item $\ldiaarg{23,45,79,127}$
-            \item Easily solvable
-            \item Compare adjascent pair (constant steps $c$)
-            \item Check for all adjascent pairs ($\leq n$)
-            \item Total steps $\sim cn$
+            \item<2-> $\ldiaarg{23,45,79,127}$
+            \item<3-> Easily solvable
+            \item<4-> Compare adjascent pair (constant steps $c$)
+            \item<5-> Check for all adjascent pairs ($\leq n$)
+            \item<6-> Total steps $\sim cn$
         \end{itemize}
-        \item Given a propositional formula $\varphi$, \textbf{is it SATISFIABLE}?
+        \item<7-> Given a propositional formula $\varphi$, \textbf{is it SATISFIABLE}?
         \begin{itemize}
-            \item $\varphi = (x_1\vee \neg x_2)\wedge (x_2\vee \neg x_3\vee \neg x_1)\wedge (x_3\vee x_1\vee x_2)$
-            \item Harder to solve
-            \item If \textbf{SATISFIABLE}, what is the certificate?
-            \item How big?
-            \item If certificate given, how much time to verify?
+            \item<8-> $\varphi = (x_1\vee \neg x_2)\wedge (x_2\vee \neg x_3\vee \neg x_1)\wedge (x_3\vee x_1\vee x_2)$
+            \item<9-> Harder to solve
+            \item<10-> If \textbf{SATISFIABLE}, what is the certificate?
+            \item<11-> How big?
+            \item<12-> If certificate given, how much time to verify?
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -769,7 +769,7 @@
         \item<1-> $\cL_1\geq_{hard}\cL_2$
         \item[]<2-> $\cL_2$ can be computed using $\cM_{\cL_1}$ 
         \item<3-> \emph{Reducing} $\cL_2$ to $\cL_1$.
-        \item[]
+        \item[]<4->
         \begin{tikzpicture}
             \node (x1) at (0,0){\Large$\circ$};
             % \node (x2) at (0,-0.5){\Large$\circ$};
@@ -841,22 +841,22 @@
 
 \begin{frame}{Definability of Classes}
     \begin{itemize}
-        \item Triangle in a graph
+        \item<1-> Triangle in a graph
         \begin{itemize}
-            \item \textbf{INPUT:} $G = \ldiaarg{V, E\subseteq V\times V}$
-            \item The property/query
-            \item[]
+            \item<1-> \textbf{INPUT:} $G = \ldiaarg{V, E\subseteq V\times V}$
+            \item<1-> The property/query
+            \item[]<1->
             \begin{align*}
             \varphi =  \exists x\exists y\exists z &(\neg(x=y)\wedge\neg(y=z)\wedge\neg(x=z)\\
                                                     &\wedge E(x,y)\wedge E(y,z)\wedge E(x,z))
             \end{align*}
         \end{itemize}
 
-        \item 3-Colorable graph
+        \item<2-> 3-Colorable graph
         \begin{itemize}
-            \item \textbf{INPUT:} $G = \ldiaarg{V, E\subseteq V\times V}$
-            \item The property/query
-            \item[]
+            \item<2-> \textbf{INPUT:} $G = \ldiaarg{V, E\subseteq V\times V}$
+            \item<2-> The property/query
+            \item[]<2->
             \begin{align*}
             \varphi =  \exists R\subseteq V&\exists G\subseteq V\exists B\subseteq V (\forall x (R(x)\vee B(x)\vee G(s))\wedge\\
                                             &\forall x (\neg (R(x)\wedge B(x))\wedge\neg(B(x)\wedge G(x))\wedge\neg(R(x)\wedge G(x)))\wedge\\
@@ -897,14 +897,14 @@
 
 \begin{frame}{Second Order Logic}
     \begin{itemize}
-        \item Extends FOL formulas with quantification over relations
-        \item[] ~~~~~~~~~~~~~~~~~~~~~~~$\exists X\varphi$
+        \item<1-> Extends FOL formulas with quantification over relations
+        \item[]<2-> ~~~~~~~~~~~~~~~~~~~~~~~$\exists X\varphi$
         \item[] 
-        \item $X$ can be any relation of any arity over the domain
-        \item Given a finite structure $\cU$:
+        \item<3-> $X$ can be any relation of any arity over the domain
+        \item<4-> Given a finite structure $\cU$:
         \begin{itemize}
-            \item $\cU\vDash\exists X\varphi$ iff $\cU\vDash\varphi[X\backslash R]$ for some $n$-ary $R$.
-            \item[] \begin{align*}
+            \item<5-> $\cU\vDash\exists X\varphi$ iff $\cU\vDash\varphi[X\backslash R]$ for some $n$-ary $R$.
+            \item[]<6-> \begin{align*}
                 \varphi =  \exists R\subseteq V&\exists G\subseteq V\exists B\subseteq V (\forall x (R(x)\vee B(x)\vee G(s))\wedge\\
                                                 &\forall x (\neg (R(x)\wedge B(x))\wedge\neg(B(x)\wedge G(x))\wedge\neg(R(x)\wedge G(x)))\wedge\\
                                                 &\forall x\forall y(E(x,y)\rightarrow(\neg(R(x)\wedge R(y)\wedge\neg(G(x)\wedge G(y))\wedge\\
@@ -956,6 +956,62 @@
             \end{tikzpicture}
         \end{column}
     \end{columns}
+\end{frame}
+
+\begin{frame}{Fixed Points}
+    \begin{itemize}
+        \item $f:\cP(\cD)\rightarrow\cP(\cD)$
+        \item \textbf{Monotone:} $X\subseteq Y$ implies $f(X)\subseteq f(Y)$
+        \item \textbf{Inflationary:} $\forall X\in\cP(\cD): X\subseteq f(X)\subseteq f(f(X))\subseteq\ldots$
+        \item \textbf{Fixed point:} $X\in\cP(D)$ is an FP of $f$, $f(X) = X$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Fixed Points}
+    \begin{itemize}
+        \item $X_0 = \emptyset$, $X_i = f^i(X_0)$
+        \item If $f$ is monotone, $lfp(f) = \bigcup_{i\geq 0}X_i$
+        \item What if not monotone?
+        \begin{itemize}
+            \item \textbf{Inflationary Fixed Point (IFP):} $ifp(f) = \bigcup_{i=0}^n (X_i\cup f(X_i))$
+            \item \textbf{Partial Fixed Point (PFP):} $ pfp(f) = 
+                                                                        \begin{cases} 
+                                                                            X_n & X_n = X_{n+1} \\
+                                                                            \emptyset & \forall n\leq 2^{|D|}:X_n \neq X_{n+1}
+                                                                        \end{cases}
+                                                        $
+        \end{itemize}
+        \item Extending logics using FP operators for higher definability
+        \item \textbf{NOTE:} For MONOTONE functions: $lfp = ifp = pfp$
+    \end{itemize}
+\end{frame}
+
+\begin{itemize}
+    \item[] Below PH:
+    \begin{block}{Immerman and Vardi}
+    If query being done over \emph{ordered finite} structures then
+    $$
+    LFP\equiv\PTime
+    $$    
+    \end{block}
+
+    \item[] Above PH:
+    \begin{block}{$\PSPACE$ Characterisation}
+        $$
+        SO[TC]\equiv\PSPACE
+        $$    
+        \end{block}
+\end{itemize}
+
+\begin{frame}
+    \includegraphics[scale = 0.3]{images/descriptiveWorld2023.jpg}
+\end{frame}
+
+\begin{frame}{Conclusion}
+    \begin{itemize}
+        \item \textbf{Other Aspects}: Proof Complexity
+        \item \textbf{Open}: Exact Characterisations for $\PTime$
+    \end{itemize}
 \end{frame}
  
 \end{document}
